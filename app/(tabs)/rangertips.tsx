@@ -1,6 +1,7 @@
 import type { Schema } from "@/amplify/data/resource";
 import { IconSymbol } from "@/components/ui/icon-symbol";
 import { useColorScheme } from "@/hooks/use-color-scheme";
+import { usePark } from "@/store/ParkContent";
 import Feather from "@expo/vector-icons/Feather";
 import { generateClient } from "aws-amplify/data";
 import * as ImagePicker from "expo-image-picker";
@@ -8,6 +9,7 @@ import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
+  Alert,
   Image,
   LayoutAnimation,
   Modal,
@@ -17,17 +19,20 @@ import {
   Text,
   TouchableOpacity,
   UIManager,
-  Image,
-  ActivityIndicator,
-  Alert,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter } from 'expo-router';
-import * as ImagePicker from 'expo-image-picker';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { usePark } from '@/store/ParkContent'; // Added store import
-import Feather from '@expo/vector-icons/Feather';
+  View,
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+const dataClient = generateClient<Schema>();
+
+interface UiAlert {
+  id: string;
+  title: string;
+  detail: string;
+  time: string;
+  type: string;
+  icon: string;
+}
 
 const RANGER_GREEN = '#2D5A27';
 
@@ -68,7 +73,8 @@ export default function RangerTips() {
   const router = useRouter();
   const { selectedPark } = usePark(); // Access global park state
   const isDark = useColorScheme() === 'dark';
-  const [alerts, setAlerts] = useState(MOCK_ALERTS);
+  const [alerts, setAlerts] = useState<UiAlert[]>(MOCK_ALERTS);
+  const [historyAlerts, setHistoryAlerts] = useState<UiAlert[]>(MOCK_ALERTS);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [historyVisible, setHistoryVisible] = useState(false);
 
