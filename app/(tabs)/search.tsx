@@ -88,7 +88,14 @@ export default function Search() {
           </TouchableOpacity>
         </View>
       </View>
-      <FlatList data={filteredParks} renderItem={renderParkItem} keyExtractor={(item) => item.id} contentContainerStyle={styles.listContent} />
+
+      <FlatList 
+        data={filteredParks} 
+        renderItem={renderParkItem} 
+        keyExtractor={(item) => item.id} 
+        contentContainerStyle={styles.listContent} 
+      />
+
       {selectedId && (
         <View style={[styles.actionSheet, { backgroundColor: isDark ? '#2C2C2E' : '#FFF' }]}>
           <TouchableOpacity style={styles.secondaryBtn} onPress={() => Alert.alert("Offline", "Download started")}>
@@ -113,12 +120,14 @@ const styles = StyleSheet.create({
   filterBtn: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, borderWidth: 1, borderColor: RANGER_GREEN },
   activeFilter: { backgroundColor: RANGER_GREEN, borderColor: RANGER_GREEN },
   filterText: { fontSize: 14, color: RANGER_GREEN, fontWeight: '600' },
-  listContent: { paddingHorizontal: 20, paddingBottom: 200 },
+  // Increased bottom padding to clear the 50px + 30px bottom tab bar
+  listContent: { paddingHorizontal: 20, paddingBottom: 180 }, 
   parkCard: { flexDirection: 'row', alignItems: 'center', padding: 20, borderRadius: 20, marginBottom: 15, borderWidth: 1, borderColor: '#E0E0E0' },
   selectedCard: { borderWidth: 2, borderColor: RANGER_GREEN },
   parkName: { fontSize: 18, fontWeight: '700' },
   parkLocation: { color: '#8E8E93', marginTop: 4 },
-  actionSheet: { position: 'absolute', bottom: 30, left: 20, right: 20, padding: 16, borderRadius: 24, flexDirection: 'row', gap: 12, elevation: 10, shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 12 },
+  // Shifted the action sheet up so it doesn't overlap with the floating tab bar
+  actionSheet: { position: 'absolute', bottom: 100, left: 20, right: 20, padding: 16, borderRadius: 24, flexDirection: 'row', gap: 12, elevation: 10, shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 12 },
   primaryBtn: { flex: 1.5, backgroundColor: RANGER_GREEN, alignItems: 'center', justifyContent: 'center', padding: 16, borderRadius: 16 },
   primaryBtnText: { color: '#FFF', fontWeight: 'bold' },
   secondaryBtn: { flex: 1, borderWidth: 1, borderColor: RANGER_GREEN, alignItems: 'center', justifyContent: 'center', padding: 16, borderRadius: 16 },
