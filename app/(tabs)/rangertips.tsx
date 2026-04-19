@@ -9,13 +9,16 @@ import {
   Modal,
   Platform,
   UIManager,
+  Image,
+  ActivityIndicator,
+  Alert,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
+import * as ImagePicker from 'expo-image-picker';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import Feather from '@expo/vector-icons/Feather';
-import { usePark } from '@/store/ParkContent';
 
 const RANGER_GREEN = '#2D5A27';
 
@@ -27,27 +30,69 @@ const MOCK_ALERTS = [
   { id: '1', title: 'Bear Sighting', detail: 'Mother black bear and cubs spotted near Trailhead 4. Maintain 100yd distance.', time: '2m ago', type: 'animal', icon: 'alert-triangle' },
   { id: '2', title: 'Trail Closure', detail: 'North Rim trail closed due to flash flood damage.', time: '1h ago', type: 'hazard', icon: 'slash' },
   { id: '3', title: 'Heavy Winds', detail: 'Winds expected above 6,000ft. Secure all loose gear.', time: '3h ago', type: 'wind', icon: 'wind' },
-  { id: '4', title: 'Flash Flooding', detail: 'Sudden rain causing rising waters in canyons.', time: '4h ago', type: 'rain', icon: 'cloud-rain' },
-  { id: '5', title: 'Parking Full', detail: 'The main parking lot is currently at capacity.', time: '5h ago', type: 'info', icon: 'truck' },
 ];
 
 export default function RangerTips() {
   const router = useRouter();
-  const { selectedPark } = usePark();
   const isDark = useColorScheme() === 'dark';
   const [alerts, setAlerts] = useState(MOCK_ALERTS);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [historyVisible, setHistoryVisible] = useState(false);
 
+  // AI State
+  const [aiModalVisible, setAiModalVisible] = useState(false);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiResult, setAiResult] = useState<string | null>(null);
+  const [capturedImage, setCapturedImage] = useState<string | null>(null);
+
   const getAlertStyle = (type: string) => {
     switch (type) {
       case 'animal': return { bg: isDark ? '#3D2B19' : '#FFF3E0', accent: '#FF9500' };
       case 'wind': return { bg: isDark ? '#1A2E35' : '#E1F5FE', accent: '#0288D1' };
-      case 'rain': return { bg: isDark ? '#1E1E3F' : '#E8EAF6', accent: '#3F51B5' };
       case 'hazard': return { bg: isDark ? '#3E1B1B' : '#FFEBEE', accent: '#D32F2F' };
       default: return { bg: isDark ? '#1C1C1E' : '#F2F2F7', accent: RANGER_GREEN };
     }
   };
+
+  const handleLaunchAI = async () => {
+  const permission = await ImagePicker.requestCameraPermissionsAsync();
+  if (!permission.granted) return;
+
+  const result = await ImagePicker.launchCameraAsync({
+    allowsEditing: true,
+    aspect: [4, 3],
+    quality: 0.4, // Balanced for Nova's detail needs vs upload speed
+    base64: true,
+  });
+
+  if (!result.canceled) {
+    setCapturedImage(result.assets[0].uri);
+    setAiLoading(true);
+    setAiModalVisible(true);
+
+    try {
+      const response = await fetch('https://52wjn260th.execute-api.us-west-2.amazonaws.com/default/RangerVision', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          imageBase64: result.assets[0].base64 // Sending the raw string
+        }),
+      });
+
+      const data = await response.json();
+      
+      if (data.error) {
+        setAiResult(`Ranger Station Error: ${data.error}`);
+      } else {
+        setAiResult(data.description);
+      }
+    } catch (error: any) {
+      setAiResult(`Connection Error: ${error.message}`);
+    } finally {
+      setAiLoading(false);
+    }
+  }
+};
 
   const handleCloseAlert = (id: string) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -67,9 +112,7 @@ export default function RangerTips() {
           <Text style={[styles.title, { color: isDark ? '#FFF' : RANGER_GREEN }]}>Ranger Tips</Text>
           <TouchableOpacity onPress={() => router.push('/search')} style={styles.locationRow}>
             <IconSymbol name="mappin.and.ellipse" size={18} color={RANGER_GREEN} />
-            <Text style={[styles.locationText, { color: isDark ? '#CCC' : '#666' }]}>
-              {selectedPark ? selectedPark.name : 'Select a Park'}
-            </Text>
+            <Text style={[styles.locationText, { color: isDark ? '#CCC' : '#666' }]}>Yosemite</Text>
           </TouchableOpacity>
         </View>
 
@@ -119,7 +162,7 @@ export default function RangerTips() {
         <View style={styles.cameraWrapper}>
            <TouchableOpacity 
              style={[styles.cameraBtn, { backgroundColor: RANGER_GREEN }]}
-             onPress={() => console.log("Launching AI Vision...")}
+             onPress={handleLaunchAI}
            >
               <Feather name="camera" size={24} color="#FFF" />
               <Text style={styles.cameraLabel}>Identify with AI</Text>
@@ -133,6 +176,50 @@ export default function RangerTips() {
           <AmenityIcon name="map.fill" label="Trails" color="#5856D6" isDark={isDark} />
         </View>
 
+    {/* --- AI RESULT MODAL --- */}
+    <Modal animationType="fade" transparent={true} visible={aiModalVisible}>
+      <View style={styles.aiOverlay}>
+        <View style={[styles.aiContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
+          <Text style={[styles.modalTitle, { color: isDark ? '#FFF' : RANGER_GREEN, textAlign: 'center' }]}>
+            Ranger Vision
+          </Text>
+
+          {aiLoading ? (
+            <View style={styles.loadingBox}>
+              <ActivityIndicator size="large" color={RANGER_GREEN} />
+              <Text style={{ marginTop: 15, color: '#8E8E93', fontWeight: '600' }}>
+                Consulting Knowledge Base...
+              </Text>
+            </View>
+          ) : (
+            <View>
+              {capturedImage && (
+                <Image source={{ uri: capturedImage }} style={styles.aiImage} />
+              )}
+              
+              <ScrollView style={{ maxHeight: 200 }} showsVerticalScrollIndicator={true}>
+                <Text style={[styles.aiResultText, { color: isDark ? '#DDD' : '#333' }]}>
+                  {aiResult}
+                </Text>
+              </ScrollView>
+
+              <TouchableOpacity 
+                style={styles.closeAiBtn} 
+                onPress={() => { 
+                  setAiModalVisible(false); 
+                  setAiResult(null); 
+                  setCapturedImage(null);
+                }}
+              >
+                <Text style={styles.closeAiBtnText}>Close</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </View>
+      </View>
+    </Modal>
+
+        {/* --- HISTORY MODAL --- */}
         <Modal animationType="slide" transparent={true} visible={historyVisible} onRequestClose={() => setHistoryVisible(false)}>
           <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => setHistoryVisible(false)}>
             <TouchableOpacity activeOpacity={1} style={[styles.modalContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
@@ -192,6 +279,13 @@ const styles = StyleSheet.create({
   amenityItem: { alignItems: 'center', gap: 10 },
   amenityCircle: { width: 62, height: 62, borderRadius: 20, justifyContent: 'center', alignItems: 'center' },
   amenityLabel: { fontSize: 13, fontWeight: '700' },
+  aiOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.85)', justifyContent: 'center', padding: 20 },
+  aiContent: { borderRadius: 30, padding: 25, elevation: 10 },
+  loadingBox: { padding: 40, alignItems: 'center' },
+  aiImage: { width: '100%', height: 220, borderRadius: 20, marginBottom: 20, resizeMode: 'cover' },
+  aiResultText: { fontSize: 16, lineHeight: 24, marginBottom: 20, fontWeight: '500' },
+  closeAiBtn: { backgroundColor: RANGER_GREEN, paddingVertical: 16, borderRadius: 18, alignItems: 'center', marginTop: 10, width: '100%' },
+  closeAiBtnText: { color: '#FFF', fontWeight: '800', fontSize: 18, textTransform: 'uppercase', letterSpacing: 1 },
   modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'flex-end' },
   modalContent: { height: '70%', borderTopLeftRadius: 35, borderTopRightRadius: 35, padding: 25 },
   modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 25 },
