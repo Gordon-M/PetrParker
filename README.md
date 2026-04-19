@@ -1,3 +1,102 @@
+# PeterParker 🌲
+### Your AI Park Ranger — California State Parks Explorer
+
+A React Native app for exploring California State Parks. Get real-time safety tips, trail tracking, offline park info, and an AI ranger chatbot — all without needing cell service once you're in the park.
+
+---
+
+## What It Does
+
+| Feature | Description |
+|---|---|
+| **Park Browser** | Search and browse all ~280 CA State Parks with offline support |
+| **Park Details** | Hours, fees, rules, amenities, and contact info per park |
+| **Map** | See your location within the park |
+| **Trail Tracker** | GPS breadcrumb recording of your hike |
+| **PeterParker Chatbot** | Ask an AI ranger about wildlife, safety, and sightseeing |
+
+---
+
+## Tech Stack
+
+- **React Native + Expo** — works on iOS and Android, no build pipeline needed for dev
+- **Expo Router** — file-based navigation (like Next.js but for mobile)
+- **NativeWind** — Tailwind CSS styling for React Native
+- **Zustand** — lightweight state management
+- **AWS Bedrock (Claude)** — powers the AI ranger chatbot
+- **AWS Lambda + API Gateway** — serverless backend
+- **DynamoDB** — park data and trail history
+- **expo-location** — GPS and trail tracking
+- **expo-sqlite + AsyncStorage** — offline data storage on device
+
+---
+
+## Getting Started
+
+**Prerequisites:** Node.js 20+, and the [Expo Go](https://expo.dev/go) app on your phone.
+
+```bash
+# 1. Install dependencies
+npm install
+
+# 2. Set up environment variables
+cp .env.example .env
+# Fill in the values — get them from the team Slack/Discord
+
+# 3. Start the dev server
+npx expo start
+```
+
+Scan the QR code with Expo Go. That's it.
+
+### iOS Simulator (Mac only)
+```bash
+npx expo start --ios
+```
+
+### Android Emulator
+```bash
+npx expo start --android
+```
+
+---
+
+## Project Structure
+
+```
+app/
+  (tabs)/
+    index.tsx      # Parks browse/search screen
+    map.tsx        # Map with user location
+    trail.tsx      # Trail tracker
+    ranger.tsx     # AI chatbot
+  park/[id].tsx    # Park detail page
+
+stores/
+  parksStore.ts    # Park list data + offline cache
+  chatStore.ts     # Chatbot messages + API calls
+  trailStore.ts    # GPS trail recording
+```
+
+---
+
+## Environment Variables
+
+Copy `.env.example` to `.env` and fill in the values.  
+Get the real keys from the team — **never commit `.env` to git.**
+
+| Variable | What It Is |
+|---|---|
+| `EXPO_PUBLIC_API_URL` | Backend API Gateway URL |
+| `EXPO_PUBLIC_COGNITO_POOL_ID` | Auth pool (no login required, uses guest access) |
+| `EXPO_PUBLIC_MAPBOX_TOKEN` | Map tiles token |
+
+---
+
+## Team
+
+Built at a 24-hour hackathon. 2 Macs + 2 Windows — everyone develops via Expo Go, no Xcode or Android Studio required for basic dev.
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
