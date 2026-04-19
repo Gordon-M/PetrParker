@@ -155,7 +155,7 @@ export default function Search() {
 
       <Modal visible={modalVisible} animationType="slide" transparent onRequestClose={() => setModalVisible(false)}>
         <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => setModalVisible(false)}>
-          <TouchableOpacity activeOpacity={1} style={[styles.modalSheet, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
+          <TouchableOpacity activeOpacity={1} style={[styles.modalSheet, { backgroundColor: isDark ? '#1C1C1E' : '#FFF', flex: 1 }]}>
             <View style={styles.modalHandle} />
             <View style={styles.modalHeader}>
               <View style={{ flex: 1 }}>
@@ -269,14 +269,14 @@ const styles = StyleSheet.create({
   parkMeta: { color: '#8E8E93', marginTop: 2, fontSize: 13 },
   parkDistance: { color: RANGER_GREEN, marginTop: 4, fontSize: 13, fontWeight: '600' },
   modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end' },
-  modalSheet: { height: '85%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: 20 },
+  modalSheet: { maxHeight: '90%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: 20 },
   modalHandle: { width: 40, height: 4, backgroundColor: '#E0E0E0', borderRadius: 2, alignSelf: 'center', marginBottom: 16 },
   modalHeader: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 20 },
   modalParkName: { fontSize: 22, fontWeight: '800' },
   modalParkMeta: { color: '#8E8E93', marginTop: 3, fontSize: 14 },
   loadingContainer: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 16 },
   loadingText: { fontSize: 16, textAlign: 'center' },
-  infoScroll: { flex: 1 },
+  infoScroll: { flex: 1, flexGrow: 1 },
   infoSection: { marginBottom: 20 },
   sectionHeader: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 8 },
   sectionTitle: { fontSize: 16, fontWeight: '700' },
