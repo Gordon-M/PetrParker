@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, ActivityIndicator, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, SafeAreaView, Image, ScrollView, Dimensions } from 'react-native';
 import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
 import * as Location from 'expo-location';
-import { useLocationTracker } from "@/hooks/useLocationTracker";
-import { usePark } from '@/store/ParkContent'; // Import Context
+import { usePark } from '@/store/ParkContent'; 
+import { FontAwesome5, MaterialCommunityIcons } from '@expo/vector-icons'; 
+
+const RANGER_GREEN = '#2D5A27';
+const { width } = Dimensions.get('window');
 
 export default function HomeScreen() {
   const mapRef = useRef<MapView>(null);
-  const { selectedPark } = usePark(); // Use Context
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [location, setLocation] = useState<Location.LocationObject | null>(
-    null,
-  );
-  const { errorMsg: locationError } = useLocationTracker(
-    "test-device-big-basin-redwoods-03",
-  );
+  const { selectedPark } = usePark(); 
+  const [location, setLocation] = useState<Location.LocationObject | null>(null);
+  const ParkRanger = require('@/assets/images/park_ranger.png');
 
   useEffect(() => {
     (async () => {
@@ -28,7 +26,6 @@ export default function HomeScreen() {
     })();
   }, []);
 
-  // Move map when selectedPark changes in Context
   useEffect(() => {
     if (selectedPark && mapRef.current && !locationError) {
       mapRef.current.animateToRegion({
@@ -40,92 +37,180 @@ export default function HomeScreen() {
     }
   }, [selectedPark]);
 
-  if (!location) return <ActivityIndicator style={{flex:1}} />;
+  if (!location) return <ActivityIndicator style={{ flex: 1 }} color={RANGER_GREEN} />;
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.headerBox}>
-        <Text style={styles.headerText}>{selectedPark?.name || 'PetrParks'}</Text>
-      </View>
-      <View style={styles.mapContainer}>
-        <MapView
-          ref={mapRef}
-          style={styles.map}
-          provider={PROVIDER_GOOGLE}
-          showsUserLocation={true}
-          initialRegion={{
-            latitude: location.coords.latitude,
-            longitude: location.coords.longitude,
-            latitudeDelta: 0.05,
-            longitudeDelta: 0.05,
-          }}
-        >
-          {selectedPark && (
-            <Marker coordinate={{ latitude: selectedPark.lat, longitude: selectedPark.lng }} title={selectedPark.name} />
-          )}
-        </MapView>
-      </View>
+      <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.scrollContent}>
+        
+        {/* Clean Header - No Borders */}
+        <View style={styles.header}>
+          <Text style={styles.brandTitle}>Petr Parker</Text>
+          <Text style={styles.tagline}>Ranger in your pocket</Text>
+          
+          <View style={styles.locationSubHeader}>
+            <MaterialCommunityIcons name="map-marker-radius" size={18} color={RANGER_GREEN} />
+            <Text style={styles.headerText}>{selectedPark?.name || 'Exploring California'}</Text>
+          </View>
+        </View>
 
-      {/* Placeholder for other UI elements */}
-      <View style={styles.contentArea}>
-        <Text style={styles.subText}>
-          Find your next adventure in CA State Parks.
-        </Text>
-      </View>
+        {/* Map Section with Decorative "Alive" Elements */}
+        <View style={styles.mapWrapper}>
+          
+          {/* Decorative Icons overlapping the map edges */}
+          <View style={styles.decorationLeft}>
+            <FontAwesome5 name="tree" size={40} color="#1B3B18" style={styles.iconShadow} />
+          </View>
+          <View style={styles.decorationRightTop}>
+            <MaterialCommunityIcons name="image-filter-hdr" size={50} color="#A0A0A0" style={styles.iconShadow} />
+          </View>
+
+          <View style={styles.mapContainer}>
+            <MapView
+              ref={mapRef}
+              style={styles.map}
+              provider={PROVIDER_GOOGLE}
+              showsUserLocation={true}
+              initialRegion={{
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
+              }}
+            >
+              {selectedPark && (
+                <Marker 
+                  coordinate={{ latitude: selectedPark.lat, longitude: selectedPark.lng }} 
+                  pinColor={RANGER_GREEN}
+                />
+              )}
+            </MapView>
+          </View>
+        </View>
+
+        {/* Bottom Image Card */}
+        <View style={styles.imageSection}>
+          <Image 
+            source={ParkRanger} // Use the required variable here
+            style={styles.bottomImage} 
+          />
+        </View>
+
+      </ScrollView>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F9F9F9",
+  container: { flex: 1, backgroundColor: '#FDFDFD' },
+  scrollContent: { paddingBottom: 60 },
+  header: { 
+    alignItems: 'center', 
+    marginTop: 30, 
+    paddingHorizontal: 25 
   },
-  headerBox: {
-    marginTop: 20,
-    marginHorizontal: 25, // Keeps title box aligned with map
-    marginBottom: 20,
-    backgroundColor: "#FFF",
-    paddingVertical: 15,
-    borderRadius: 12,
-    borderWidth: 3,
-    borderColor: "#2D5A27",
-    // Shadow
-    elevation: 3,
-    shadowColor: "#000",
+  brandTitle: { 
+    fontSize: 38, 
+    fontWeight: '900', 
+    color: RANGER_GREEN, 
+    letterSpacing: -1,
+    marginBottom: 0
+  },
+  tagline: { 
+    fontSize: 16, 
+    fontWeight: '500', 
+    color: '#8E8E93', 
+    marginTop: -4,
+    fontStyle: 'italic'
+  },
+  locationSubHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 15,
+    gap: 5
+  },
+  headerText: { 
+    fontSize: 18, 
+    fontWeight: '700', 
+    color: '#444' 
+  },
+  mapWrapper: {
+    alignSelf: 'center',
+    marginTop: 30,
+    position: 'relative',
+    width: width * 0.9,
+    padding: 10,
+  },
+  mapContainer: { 
+    width: '100%', 
+    height: 380, 
+    borderRadius: 35, 
+    overflow: 'hidden', 
+    borderWidth: 6, 
+    borderColor: '#FFF', // White thick border like a polaroid
+    elevation: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.15,
+    shadowRadius: 15,
+  },
+  map: { width: '100%', height: '100%' },
+  
+  // Decorations
+  decorationLeft: {
+    position: 'absolute',
+    left: -5,
+    bottom: 20,
+    zIndex: 10,
+  },
+  decorationRightTop: {
+    position: 'absolute',
+    right: -10,
+    top: -5,
+    zIndex: 10,
+  },
+  decorationRightBottom: {
+    position: 'absolute',
+    right: -5,
+    bottom: 40,
+    zIndex: 10,
+  },
+  iconShadow: {
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
-  headerText: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#2D5A27",
-    textAlign: "center",
+
+  imageSection: {
+    marginTop: 10,
+    marginHorizontal: 25,
   },
-  mapContainer: {
-    width: "85%", // Constrains width to 85% of screen
-    height: 400, // Fixed height so it doesn't fill screen
-    alignSelf: "center", // Centers the map horizontally
+  imageLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 12
+  },
+  imageTitle: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: RANGER_GREEN,
+  },
+  bottomImage: {
+    width: '100%',
+    height: 180,
     borderRadius: 25,
-    overflow: "hidden",
-    borderWidth: 3,
-    borderColor: "#2D5A27",
+    backgroundColor: '#EEE'
   },
-  map: {
-    width: "100%",
-    height: "100%",
+  imageFooter: {
+    paddingVertical: 15,
+    paddingHorizontal: 10
   },
-  contentArea: {
-    marginTop: 20,
-    alignItems: "center",
-  },
-  subText: {
-    color: "#666",
-    fontStyle: "italic",
-  },
-  center: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
+  imageCaption: {
+    fontSize: 14,
+    color: '#8E8E93',
+    textAlign: 'center',
+    lineHeight: 20,
+  }
 });
