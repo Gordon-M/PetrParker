@@ -1,0 +1,9 @@
+type RangerAlert @model @auth(rules: [{allow: public, provider: identityPool}])
+{
+  parkName: String!
+  geofenceId: String
+  title: String!
+  detail: String!
+  alertType: String!
+  source: String!
+}

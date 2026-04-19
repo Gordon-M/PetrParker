@@ -1,0 +1,1285 @@
+{
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f": [
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "amplify:deployment-type",
+          "value": "sandbox"
+        },
+        {
+          "key": "created-by",
+          "value": "amplify"
+        }
+      ]
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/deploymentType": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "deploymentType"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/region": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "region"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/userPoolId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "userPoolId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/webClientId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "webClientId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/identityPoolId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "identityPoolId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/authRegion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "authRegion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/allowUnauthenticatedIdentities": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "allowUnauthenticatedIdentities"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/signupAttributes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "signupAttributes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/usernameAttributes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "usernameAttributes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/verificationMechanisms": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "verificationMechanisms"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordPolicyMinLength": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordPolicyMinLength"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordPolicyRequirements": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordPolicyRequirements"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/mfaConfiguration": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "mfaConfiguration"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/mfaTypes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "mfaTypes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordlessOptions": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordlessOptions"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/socialProviders": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "socialProviders"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthCognitoDomain": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthCognitoDomain"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthScope": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthScope"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthRedirectSignIn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthRedirectSignIn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthRedirectSignOut": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthRedirectSignOut"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthResponseType": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthResponseType"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthClientId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthClientId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/groups": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "groups"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/awsAppsyncApiId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "awsAppsyncApiId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/awsAppsyncApiEndpoint": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "awsAppsyncApiEndpoint"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/awsAppsyncAuthenticationType": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "awsAppsyncAuthenticationType"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/awsAppsyncRegion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "awsAppsyncRegion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/amplifyApiModelSchemaS3Uri": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyApiModelSchemaS3Uri"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/awsAppsyncAdditionalAuthenticationTypes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "awsAppsyncAdditionalAuthenticationTypes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/definedFunctions": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "definedFunctions"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolAppClientC0AC3445Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolAppClientC0AC3445Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth.NestedStack/auth.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "auth179371D7"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/DynamoDBModelTableReadIOPS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBModelTableReadIOPS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/DynamoDBModelTableWriteIOPS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBModelTableWriteIOPS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/DynamoDBBillingMode": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBBillingMode"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/DynamoDBEnablePointInTimeRecovery": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBEnablePointInTimeRecovery"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/DynamoDBEnableServerSideEncryption": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBEnableServerSideEncryption"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::S3AutoDeleteObjectsCustomResourceProvider": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-customResourceProvider",
+      "data": true
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB": [
+    {
+      "type": "aws:cdk:is-custom-resource-handler-singleton",
+      "data": true
+    },
+    {
+      "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+      "data": 2
+    },
+    {
+      "type": "aws:cdk:is-custom-resource-handler-singleton",
+      "data": true
+    },
+    {
+      "type": "aws:cdk:is-custom-resource-handler-runtime-family",
+      "data": 2
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617GraphQLUrl": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617GraphQLUrl"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBCBBB247EDestinationBucketArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiBCBBB247EDestinationBucketArn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data.NestedStack/data.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "data7552DF31"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function.NestedStack/function.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "function1351588B"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/ParkTracker": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ParkTracker"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/TrackerLink": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TrackerLink"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2ffunctionNestedStackfunctionNestedStackResourceBBE961E6Outputs.amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2ffunctionNestedStackfunctionNestedStackResourceBBE961E6Outputsamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack.NestedStack/GeoStack.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeoStackD3BB67A1"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/IdentityPool": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthIdentityPool3FDE84CC"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/IdentityPoolRoleAttachment": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthIdentityPoolRoleAttachment045F17C8"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Role": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderRole3B1BD092"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::S3AutoDeleteObjectsCustomResourceProvider/Handler": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomS3AutoDeleteObjectsCustomResourceProviderHandler9D90184F"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBC5D8AB21"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/modelIntrospectionSchemaBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "modelIntrospectionSchemaBucketF566B665"
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketAutoDeleteObjects"
+      }
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/AMPLIFY_DATA_GRAPHQL_ENDPOINTParameter/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AMPLIFYDATAGRAPHQLENDPOINTParameter1C2CBB16"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_BUCKET_NAMEParameter/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMABUCKETNAMEParameter47BF4F44"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/AMPLIFY_DATA_MODEL_INTROSPECTION_SCHEMA_KEYParameter/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AMPLIFYDATAMODELINTROSPECTIONSCHEMAKEYParameterB6AEAE8A"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/AMPLIFY_DATA_DEFAULT_NAMEParameter/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AMPLIFYDATADEFAULTNAMEParameterE7C23CC4"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambda1C58676E"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/GeofenceRule/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeofenceRuleAD8F51D9"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/GeofenceRule/AllowEventRuleamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambda7D6280A3": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeofenceRuleAllowEventRuleamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambda7D6280A34D2118CF"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/UserPool/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthUserPool4BA7F805"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/UserPoolAppClient/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthUserPoolAppClient2626C6F8"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/authenticatedUserRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthauthenticatedUserRoleD8DA3689"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthunauthenticatedUserRole2B524D9E"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/GraphQLAPI/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataGraphQLAPI42A6FA33"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/GraphQLAPI/TransformerSchema": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataGraphQLAPITransformerSchemaFF50A789"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/GraphQLAPI/NONE_DS": [
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "NONE_DS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventFD0B68DBArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventFD0B68DBArn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager.NestedStack/AmplifyTableManager.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource86290833"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/DynamoDBModelTableReadIOPS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBModelTableReadIOPS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/DynamoDBModelTableWriteIOPS": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBModelTableWriteIOPS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/DynamoDBBillingMode": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBBillingMode"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/DynamoDBEnablePointInTimeRecovery": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBEnablePointInTimeRecovery"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/DynamoDBEnableServerSideEncryption": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DynamoDBEnableServerSideEncryption"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/HasEnvironmentParameter": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HasEnvironmentParameter"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/ShouldUsePayPerRequestBilling": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ShouldUsePayPerRequestBilling"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/ShouldUsePointInTimeRecovery": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ShouldUsePointInTimeRecovery"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertTable": [
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/CustomTableRangerAlertTable": [
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/GetAttRangerAlertTableStreamArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetAttRangerAlertTableStreamArn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/GetAttRangerAlertTableName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetAttRangerAlertTableName"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertIAMRole": [
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlertIAMRole"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertDataSource": [
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlertTable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/queryGetRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GetRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Query.getRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/queryListRangerAlertsResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ListRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Query.listRangerAlerts"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationCreateRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CreateRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Mutation.createRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationUpdateRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "UpdateRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Mutation.updateRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationDeleteRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "DeleteRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Mutation.deleteRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnCreateRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononCreateRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Subscription.onCreateRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnUpdateRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononUpdateRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Subscription.onUpdateRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnDeleteRangerAlertResolver": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononDeleteRangerAlertResolver"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "Subscription.onDeleteRangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource5851C3F6Outputs.amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManagerCustomProviderframeworkonEventFD0B68DBArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource5851C3F6Outputsamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManage1FAAC23C"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputs.amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert.NestedStack/RangerAlert.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataRangerAlertNestedStackRangerAlertNestedStackResource1CDEBB8C"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AuthRolePolicy01/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAuthRolePolicy01567A5654"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/UnauthRolePolicy01/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataUnauthRolePolicy01355B9DCF"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleA41FC8C2"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/modelIntrospectionSchemaBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "modelIntrospectionSchemaBucketPolicy4DAB0D15"
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketPolicyStatements"
+      }
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/modelIntrospectionSchemaBucket/AutoDeleteObjectsCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "modelIntrospectionSchemaBucketAutoDeleteObjectsCustomResourceFE57309F"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/modelIntrospectionSchemaBucketDeployment/AwsCliLayer/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "modelIntrospectionSchemaBucketDeploymentAwsCliLayer13C432F7"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/modelIntrospectionSchemaBucketDeployment/CustomResource-1536MiB/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "modelIntrospectionSchemaBucketDeploymentCustomResource1536MiB104B97EC"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambdaServiceRoleB5CA9487"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/unauthenticatedUserRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthunauthenticatedUserRoleDefaultPolicy1AB22815"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/GraphQLAPI/NONE_DS/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataGraphQLAPINONEDS684BF699"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "NONE_DS"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableIsCompleteRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyManagedTableIsCompleteRoleF825222C"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyManagedTableOnEventRoleB4E71DEA"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyTableWaiterStateMachine060600BC"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertIAMRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RangerAlertIAMRoleD23E9292"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlertIAMRole"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertDataSource/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RangerAlertDataSource"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlertTable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerygetRangerAlertauth0Function/QuerygetRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QuerygetRangerAlertauth0FunctionQuerygetRangerAlertauth0FunctionAppSyncFunction4577F342"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QuerygetRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerygetRangerAlertpostAuth0Function/QuerygetRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QuerygetRangerAlertpostAuth0FunctionQuerygetRangerAlertpostAuth0FunctionAppSyncFunction0405453A"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QuerygetRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QueryGetRangerAlertDataResolverFn/QueryGetRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QueryGetRangerAlertDataResolverFnQueryGetRangerAlertDataResolverFnAppSyncFunctionA4C0FFA6"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QueryGetRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerylistRangerAlertsauth0Function/QuerylistRangerAlertsauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QuerylistRangerAlertsauth0FunctionQuerylistRangerAlertsauth0FunctionAppSyncFunction62FC4FB8"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QuerylistRangerAlertsauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerylistRangerAlertspostAuth0Function/QuerylistRangerAlertspostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QuerylistRangerAlertspostAuth0FunctionQuerylistRangerAlertspostAuth0FunctionAppSyncFunctionB782F6C9"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QuerylistRangerAlertspostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QueryListRangerAlertsDataResolverFn/QueryListRangerAlertsDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "QueryListRangerAlertsDataResolverFnQueryListRangerAlertsDataResolverFnAppSyncFunction7E8BB955"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "QueryListRangerAlertsDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertinit0Function/MutationcreateRangerAlertinit0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationcreateRangerAlertinit0FunctionMutationcreateRangerAlertinit0FunctionAppSyncFunctionBD958026"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationcreateRangerAlertinit0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertauth0Function/MutationcreateRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationcreateRangerAlertauth0FunctionMutationcreateRangerAlertauth0FunctionAppSyncFunctionA3DE663F"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationcreateRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertpostAuth0Function/MutationcreateRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationcreateRangerAlertpostAuth0FunctionMutationcreateRangerAlertpostAuth0FunctionAppSyncFunction2ABB222B"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationcreateRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationCreateRangerAlertDataResolverFn/MutationCreateRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationCreateRangerAlertDataResolverFnMutationCreateRangerAlertDataResolverFnAppSyncFunctionD42DD3A4"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationCreateRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertinit0Function/MutationupdateRangerAlertinit0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationupdateRangerAlertinit0FunctionMutationupdateRangerAlertinit0FunctionAppSyncFunction83E70AED"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationupdateRangerAlertinit0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertauth0Function/MutationupdateRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationupdateRangerAlertauth0FunctionMutationupdateRangerAlertauth0FunctionAppSyncFunction07456C73"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationupdateRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertpostAuth0Function/MutationupdateRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationupdateRangerAlertpostAuth0FunctionMutationupdateRangerAlertpostAuth0FunctionAppSyncFunction3BF309E9"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationupdateRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationUpdateRangerAlertDataResolverFn/MutationUpdateRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationUpdateRangerAlertDataResolverFnMutationUpdateRangerAlertDataResolverFnAppSyncFunction2DBA112F"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationUpdateRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationdeleteRangerAlertauth0Function/MutationdeleteRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationdeleteRangerAlertauth0FunctionMutationdeleteRangerAlertauth0FunctionAppSyncFunction697C535C"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationdeleteRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationdeleteRangerAlertpostAuth0Function/MutationdeleteRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationdeleteRangerAlertpostAuth0FunctionMutationdeleteRangerAlertpostAuth0FunctionAppSyncFunctionFC09ED90"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationdeleteRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationDeleteRangerAlertDataResolverFn/MutationDeleteRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "MutationDeleteRangerAlertDataResolverFnMutationDeleteRangerAlertDataResolverFnAppSyncFunction8CDCFBD1"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "MutationDeleteRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononCreateRangerAlertauth0Function/SubscriptiononCreateRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononCreateRangerAlertauth0FunctionSubscriptiononCreateRangerAlertauth0FunctionAppSyncFunctionBE4AF76F"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononCreateRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononCreateRangerAlertpostAuth0Function/SubscriptiononCreateRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononCreateRangerAlertpostAuth0FunctionSubscriptiononCreateRangerAlertpostAuth0FunctionAppSyncFunction36F54D4F"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononCreateRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnCreateRangerAlertDataResolverFn/SubscriptionOnCreateRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptionOnCreateRangerAlertDataResolverFnSubscriptionOnCreateRangerAlertDataResolverFnAppSyncFunction280C2AC4"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptionOnCreateRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononUpdateRangerAlertauth0Function/SubscriptiononUpdateRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononUpdateRangerAlertauth0FunctionSubscriptiononUpdateRangerAlertauth0FunctionAppSyncFunctionDEFC8071"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononUpdateRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononUpdateRangerAlertpostAuth0Function/SubscriptiononUpdateRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononUpdateRangerAlertpostAuth0FunctionSubscriptiononUpdateRangerAlertpostAuth0FunctionAppSyncFunction208915A9"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononUpdateRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnUpdateRangerAlertDataResolverFn/SubscriptionOnUpdateRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptionOnUpdateRangerAlertDataResolverFnSubscriptionOnUpdateRangerAlertDataResolverFnAppSyncFunction1C780B80"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptionOnUpdateRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononDeleteRangerAlertauth0Function/SubscriptiononDeleteRangerAlertauth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononDeleteRangerAlertauth0FunctionSubscriptiononDeleteRangerAlertauth0FunctionAppSyncFunction6A85F5B5"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononDeleteRangerAlertauth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononDeleteRangerAlertpostAuth0Function/SubscriptiononDeleteRangerAlertpostAuth0Function.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptiononDeleteRangerAlertpostAuth0FunctionSubscriptiononDeleteRangerAlertpostAuth0FunctionAppSyncFunction9D04359D"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptiononDeleteRangerAlertpostAuth0Function"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnDeleteRangerAlertDataResolverFn/SubscriptionOnDeleteRangerAlertDataResolverFn.AppSyncFunction": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "SubscriptionOnDeleteRangerAlertDataResolverFnSubscriptionOnDeleteRangerAlertDataResolverFnAppSyncFunction89DAA370"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "SubscriptionOnDeleteRangerAlertDataResolverFn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucket9CCB4ACA"
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketAutoDeleteObjects"
+      }
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/Custom::CDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiB/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CustomCDKBucketDeployment8693BB64968944B69AAFB0CC9EB8756C1536MiBServiceRoleDefaultPolicyFF1C635B"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambdaServiceRoleDefaultPolicy55493AED"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyManagedTableOnEventRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyManagedTableOnEventRoleDefaultPolicyF6DABCB6"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-onEvent/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TableManagerCustomProviderframeworkonEvent1DFC2ECC"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/TableManagerCustomProvider/framework-isComplete/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TableManagerCustomProviderframeworkisComplete2E51021B"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyTableWaiterStateMachineRole470BE899"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertTable/Default/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "RangerAlertTable"
+    },
+    {
+      "type": "graphqltransformer:resourceName",
+      "data": "RangerAlert"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/Policy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketPolicyF1C1C548"
+    },
+    {
+      "type": "aws:cdk:analytics:mixin",
+      "data": {
+        "mixin": "aws-cdk-lib.aws_s3.mixins.BucketPolicyStatements"
+      }
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsBucket/AutoDeleteObjectsCustomResource/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsBucketAutoDeleteObjectsCustomResource437F26F5"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/AwsCliLayer/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentAwsCliLayerE322F905"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyCodegenAssets/AmplifyCodegenAssetsDeployment/CustomResource-1536MiB/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyDataAmplifyCodegenAssetsAmplifyCodegenAssetsDeploymentCustomResource1536MiB21775929"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/AmplifyTableManager/AmplifyTableWaiterStateMachine/Role/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "AmplifyTableWaiterStateMachineRoleDefaultPolicy89F3836A"
+    }
+  ]
+}

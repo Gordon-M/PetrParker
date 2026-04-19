@@ -1,0 +1,2080 @@
+{
+ "Parameters": {
+  "DynamoDBModelTableReadIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of read IOPS the table should support."
+  },
+  "DynamoDBModelTableWriteIOPS": {
+   "Type": "Number",
+   "Default": 5,
+   "Description": "The number of write IOPS the table should support."
+  },
+  "DynamoDBBillingMode": {
+   "Type": "String",
+   "Default": "PAY_PER_REQUEST",
+   "AllowedValues": [
+    "PAY_PER_REQUEST",
+    "PROVISIONED"
+   ],
+   "Description": "Configure @model types to create DynamoDB tables with PAY_PER_REQUEST or PROVISIONED billing modes."
+  },
+  "DynamoDBEnablePointInTimeRecovery": {
+   "Type": "String",
+   "Default": "false",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Whether to enable Point in Time Recovery on the table."
+  },
+  "DynamoDBEnableServerSideEncryption": {
+   "Type": "String",
+   "Default": "true",
+   "AllowedValues": [
+    "true",
+    "false"
+   ],
+   "Description": "Enable server side encryption powered by KMS."
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource5851C3F6Outputsamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManage1FAAC23C": {
+   "Type": "String"
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId": {
+   "Type": "String"
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName": {
+   "Type": "String"
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref": {
+   "Type": "String"
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref": {
+   "Type": "String"
+  },
+  "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref": {
+   "Type": "String"
+  }
+ },
+ "Conditions": {
+  "HasEnvironmentParameter": {
+   "Fn::Not": [
+    {
+     "Fn::Equals": [
+      "NONE",
+      "NONE"
+     ]
+    }
+   ]
+  },
+  "ShouldUsePayPerRequestBilling": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBBillingMode"
+    },
+    "PAY_PER_REQUEST"
+   ]
+  },
+  "ShouldUsePointInTimeRecovery": {
+   "Fn::Equals": [
+    {
+     "Ref": "DynamoDBEnablePointInTimeRecovery"
+    },
+    "true"
+   ]
+  },
+  "CDKMetadataAvailable": {
+   "Fn::Or": [
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "af-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-northeast-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-south-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-3"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ap-southeast-4"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "ca-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "cn-northwest-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-central-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-north-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-south-2"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Or": [
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "eu-west-3"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "il-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-central-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "me-south-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "sa-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-1"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-east-2"
+       ]
+      },
+      {
+       "Fn::Equals": [
+        {
+         "Ref": "AWS::Region"
+        },
+        "us-west-1"
+       ]
+      }
+     ]
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "AWS::Region"
+      },
+      "us-west-2"
+     ]
+    }
+   ]
+  }
+ },
+ "Resources": {
+  "RangerAlertTable": {
+   "Type": "Custom::AmplifyDynamoDBTable",
+   "Properties": {
+    "ServiceToken": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerNestedStackAmplifyTableManagerNestedStackResource5851C3F6Outputsamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataAmplifyTableManagerTableManage1FAAC23C"
+    },
+    "tableName": {
+     "Fn::Join": [
+      "",
+      [
+       "RangerAlert-",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "attributeDefinitions": [
+     {
+      "attributeName": "id",
+      "attributeType": "S"
+     }
+    ],
+    "keySchema": [
+     {
+      "attributeName": "id",
+      "keyType": "HASH"
+     }
+    ],
+    "provisionedThroughput": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      {
+       "Ref": "AWS::NoValue"
+      },
+      {
+       "ReadCapacityUnits": {
+        "Ref": "DynamoDBModelTableReadIOPS"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "DynamoDBModelTableWriteIOPS"
+       }
+      }
+     ]
+    },
+    "sseSpecification": {
+     "sseEnabled": false
+    },
+    "streamSpecification": {
+     "streamViewType": "NEW_AND_OLD_IMAGES"
+    },
+    "deletionProtectionEnabled": false,
+    "allowDestructiveGraphqlSchemaUpdates": true,
+    "replaceTableUponGsiUpdate": true,
+    "pointInTimeRecoverySpecification": {
+     "Fn::If": [
+      "ShouldUsePointInTimeRecovery",
+      {
+       "PointInTimeRecoveryEnabled": true
+      },
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    },
+    "billingMode": {
+     "Fn::If": [
+      "ShouldUsePayPerRequestBilling",
+      "PAY_PER_REQUEST",
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertTable/Default/Default"
+   }
+  },
+  "RangerAlertIAMRoleD23E9292": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "appsync.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": [
+          "dynamodb:BatchGetItem",
+          "dynamodb:BatchWriteItem",
+          "dynamodb:PutItem",
+          "dynamodb:DeleteItem",
+          "dynamodb:GetItem",
+          "dynamodb:Scan",
+          "dynamodb:Query",
+          "dynamodb:UpdateItem",
+          "dynamodb:ConditionCheckItem",
+          "dynamodb:DescribeTable",
+          "dynamodb:GetRecords",
+          "dynamodb:GetShardIterator"
+         ],
+         "Effect": "Allow",
+         "Resource": [
+          {
+           "Fn::Sub": [
+            "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "RangerAlert-",
+                {
+                 "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          },
+          {
+           "Fn::Sub": [
+            "arn:${AWS::Partition}:dynamodb:${AWS::Region}:${AWS::AccountId}:table/${tablename}/*",
+            {
+             "tablename": {
+              "Fn::Join": [
+               "",
+               [
+                "RangerAlert-",
+                {
+                 "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+                },
+                "-NONE"
+               ]
+              ]
+             }
+            }
+           ]
+          }
+         ]
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "DynamoDBAccess"
+     }
+    ],
+    "RoleName": {
+     "Fn::Join": [
+      "",
+      [
+       "RangerAlertIAMRole9f6cda-",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "-NONE"
+      ]
+     ]
+    },
+    "Tags": [
+     {
+      "Key": "amplify:deployment-type",
+      "Value": "sandbox"
+     },
+     {
+      "Key": "amplify:friendly-name",
+      "Value": "amplifyData"
+     },
+     {
+      "Key": "created-by",
+      "Value": "amplify"
+     }
+    ]
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertIAMRole/Resource"
+   }
+  },
+  "RangerAlertDataSource": {
+   "Type": "AWS::AppSync::DataSource",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DynamoDBConfig": {
+     "AwsRegion": {
+      "Ref": "AWS::Region"
+     },
+     "TableName": {
+      "Fn::Select": [
+       1,
+       {
+        "Fn::Split": [
+         "/",
+         {
+          "Fn::Select": [
+           5,
+           {
+            "Fn::Split": [
+             ":",
+             {
+              "Fn::GetAtt": [
+               "RangerAlertTable",
+               "TableArn"
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       }
+      ]
+     }
+    },
+    "Name": "RangerAlertTable",
+    "ServiceRoleArn": {
+     "Fn::GetAtt": [
+      "RangerAlertIAMRoleD23E9292",
+      "Arn"
+     ]
+    },
+    "Type": "AMAZON_DYNAMODB"
+   },
+   "DependsOn": [
+    "RangerAlertIAMRoleD23E9292"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/RangerAlertDataSource/Resource"
+   }
+  },
+  "QuerygetRangerAlertauth0FunctionQuerygetRangerAlertauth0FunctionAppSyncFunction4577F342": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e7b2a5c2142d48e60eebe8e4beed7cc465c87e36229199889878edae668ef132.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerygetRangerAlertauth0Function/QuerygetRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerygetRangerAlertpostAuth0FunctionQuerygetRangerAlertpostAuth0FunctionAppSyncFunction0405453A": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerygetRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerygetRangerAlertpostAuth0Function/QuerygetRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryGetRangerAlertDataResolverFnQueryGetRangerAlertDataResolverFnAppSyncFunctionA4C0FFA6": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryGetRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/08f4d557693d96c1a4efba0f9dc91330e4b19772fd5477c156468843e3d9cb5e.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4c6a2d29f01c6091bd1d9afe16e5849d456c96f17c3b215938c8067399532719.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QueryGetRangerAlertDataResolverFn/QueryGetRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "GetRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "getRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerygetRangerAlertauth0FunctionQuerygetRangerAlertauth0FunctionAppSyncFunction4577F342",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerygetRangerAlertpostAuth0FunctionQuerygetRangerAlertpostAuth0FunctionAppSyncFunction0405453A",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryGetRangerAlertDataResolverFnQueryGetRangerAlertDataResolverFnAppSyncFunctionA4C0FFA6",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"getRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "RangerAlertTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/queryGetRangerAlertResolver"
+   }
+  },
+  "QuerylistRangerAlertsauth0FunctionQuerylistRangerAlertsauth0FunctionAppSyncFunction62FC4FB8": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistRangerAlertsauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e7b2a5c2142d48e60eebe8e4beed7cc465c87e36229199889878edae668ef132.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerylistRangerAlertsauth0Function/QuerylistRangerAlertsauth0Function.AppSyncFunction"
+   }
+  },
+  "QuerylistRangerAlertspostAuth0FunctionQuerylistRangerAlertspostAuth0FunctionAppSyncFunctionB782F6C9": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QuerylistRangerAlertspostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QuerylistRangerAlertspostAuth0Function/QuerylistRangerAlertspostAuth0Function.AppSyncFunction"
+   }
+  },
+  "QueryListRangerAlertsDataResolverFnQueryListRangerAlertsDataResolverFnAppSyncFunction7E8BB955": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "QueryListRangerAlertsDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9fcbe070ecd3023c5bf5b966fa9584757db9762eef123bad0820bd87591b2174.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/cc01911d0269d4080ea57505dc445dfc315ef7ad85d3d9d4ea1357858bff451d.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/QueryListRangerAlertsDataResolverFn/QueryListRangerAlertsDataResolverFn.AppSyncFunction"
+   }
+  },
+  "ListRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "listRangerAlerts",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "QuerylistRangerAlertsauth0FunctionQuerylistRangerAlertsauth0FunctionAppSyncFunction62FC4FB8",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QuerylistRangerAlertspostAuth0FunctionQuerylistRangerAlertspostAuth0FunctionAppSyncFunctionB782F6C9",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "QueryListRangerAlertsDataResolverFnQueryListRangerAlertsDataResolverFnAppSyncFunction7E8BB955",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Query\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"listRangerAlerts\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "RangerAlertTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Query"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/queryListRangerAlertsResolver"
+   }
+  },
+  "MutationcreateRangerAlertinit0FunctionMutationcreateRangerAlertinit0FunctionAppSyncFunctionBD958026": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateRangerAlertinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/a183ddccbd956316c38ef97177b8f088ef0826f62023323f5ae6053d348ccffc.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertinit0Function/MutationcreateRangerAlertinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateRangerAlertauth0FunctionMutationcreateRangerAlertauth0FunctionAppSyncFunctionA3DE663F": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/687e5bb5b18cd04d8e695d1f85ad9d43df05210383aba8097d72910c47b3e7e1.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertauth0Function/MutationcreateRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationcreateRangerAlertpostAuth0FunctionMutationcreateRangerAlertpostAuth0FunctionAppSyncFunction2ABB222B": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationcreateRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationcreateRangerAlertpostAuth0Function/MutationcreateRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationCreateRangerAlertDataResolverFnMutationCreateRangerAlertDataResolverFnAppSyncFunctionD42DD3A4": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationCreateRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/2d595ef37c23d03be261a4f66188336408cfca6bba4a04728ee11c8eb86b0120.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationCreateRangerAlertDataResolverFn/MutationCreateRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "CreateRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "createRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationcreateRangerAlertinit0FunctionMutationcreateRangerAlertinit0FunctionAppSyncFunctionBD958026",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateRangerAlertauth0FunctionMutationcreateRangerAlertauth0FunctionAppSyncFunctionA3DE663F",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationcreateRangerAlertpostAuth0FunctionMutationcreateRangerAlertpostAuth0FunctionAppSyncFunction2ABB222B",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationCreateRangerAlertDataResolverFnMutationCreateRangerAlertDataResolverFnAppSyncFunctionD42DD3A4",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"createRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "RangerAlertTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationCreateRangerAlertResolver"
+   }
+  },
+  "MutationupdateRangerAlertinit0FunctionMutationupdateRangerAlertinit0FunctionAppSyncFunction83E70AED": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateRangerAlertinit0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/06db846fd14e6fc371f22b12b5545ba8e2dbfeda85d8c8d586c71c282166657b.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertinit0Function/MutationupdateRangerAlertinit0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateRangerAlertauth0FunctionMutationupdateRangerAlertauth0FunctionAppSyncFunction07456C73": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/035bca645c95ac13c5dbae712a5a00df2f0b40b2772e5077b865722057d0b2b7.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertauth0Function/MutationupdateRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationupdateRangerAlertpostAuth0FunctionMutationupdateRangerAlertpostAuth0FunctionAppSyncFunction3BF309E9": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationupdateRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationupdateRangerAlertpostAuth0Function/MutationupdateRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationUpdateRangerAlertDataResolverFnMutationUpdateRangerAlertDataResolverFnAppSyncFunction2DBA112F": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationUpdateRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/474bf0776ec2164a13191d1a0a9e057154931e4918fea5086f49850d02a5371b.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationUpdateRangerAlertDataResolverFn/MutationUpdateRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "UpdateRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "updateRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationupdateRangerAlertinit0FunctionMutationupdateRangerAlertinit0FunctionAppSyncFunction83E70AED",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateRangerAlertauth0FunctionMutationupdateRangerAlertauth0FunctionAppSyncFunction07456C73",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationupdateRangerAlertpostAuth0FunctionMutationupdateRangerAlertpostAuth0FunctionAppSyncFunction3BF309E9",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationUpdateRangerAlertDataResolverFnMutationUpdateRangerAlertDataResolverFnAppSyncFunction2DBA112F",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"updateRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "RangerAlertTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationUpdateRangerAlertResolver"
+   }
+  },
+  "MutationdeleteRangerAlertauth0FunctionMutationdeleteRangerAlertauth0FunctionAppSyncFunction697C535C": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/1f5fed297da9c32ae3af922bf3a38ccf23b956078887d16891ec06c20c64722c.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/04afff6c870576131ba15da50cb5c3c0278fbab9d12c4fd63520a49832c46482.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationdeleteRangerAlertauth0Function/MutationdeleteRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "MutationdeleteRangerAlertpostAuth0FunctionMutationdeleteRangerAlertpostAuth0FunctionAppSyncFunctionFC09ED90": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationdeleteRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationdeleteRangerAlertpostAuth0Function/MutationdeleteRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "MutationDeleteRangerAlertDataResolverFnMutationDeleteRangerAlertDataResolverFnAppSyncFunction8CDCFBD1": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Fn::GetAtt": [
+      "RangerAlertDataSource",
+      "Name"
+     ]
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "MutationDeleteRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/4f7907d1209a2c9953a0c053df402c634e359546d70c7cc5c2e8e21ea734880f.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/f4a52b72209a9dfa197b5e7367a5c378c5bb86de6e29ddd9e48b49a3fe54b249.vtl"
+    }
+   },
+   "DependsOn": [
+    "RangerAlertDataSource"
+   ],
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/MutationDeleteRangerAlertDataResolverFn/MutationDeleteRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "DeleteRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "deleteRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteRangerAlertauth0FunctionMutationdeleteRangerAlertauth0FunctionAppSyncFunction697C535C",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationdeleteRangerAlertpostAuth0FunctionMutationdeleteRangerAlertpostAuth0FunctionAppSyncFunctionFC09ED90",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "MutationDeleteRangerAlertDataResolverFnMutationDeleteRangerAlertDataResolverFnAppSyncFunction8CDCFBD1",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Mutation\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"deleteRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"AMAZON_DYNAMODB\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n$util.qr($ctx.stash.put(\"tableName\", \"",
+       {
+        "Fn::Select": [
+         1,
+         {
+          "Fn::Split": [
+           "/",
+           {
+            "Fn::Select": [
+             5,
+             {
+              "Fn::Split": [
+               ":",
+               {
+                "Fn::GetAtt": [
+                 "RangerAlertTable",
+                 "TableArn"
+                ]
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Mutation"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/mutationDeleteRangerAlertResolver"
+   }
+  },
+  "SubscriptiononCreateRangerAlertauth0FunctionSubscriptiononCreateRangerAlertauth0FunctionAppSyncFunctionBE4AF76F": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononCreateRangerAlertauth0Function/SubscriptiononCreateRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateRangerAlertpostAuth0FunctionSubscriptiononCreateRangerAlertpostAuth0FunctionAppSyncFunction36F54D4F": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononCreateRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononCreateRangerAlertpostAuth0Function/SubscriptiononCreateRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnCreateRangerAlertDataResolverFnSubscriptionOnCreateRangerAlertDataResolverFnAppSyncFunction280C2AC4": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnCreateRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnCreateRangerAlertDataResolverFn/SubscriptionOnCreateRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononCreateRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "onCreateRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateRangerAlertauth0FunctionSubscriptiononCreateRangerAlertauth0FunctionAppSyncFunctionBE4AF76F",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononCreateRangerAlertpostAuth0FunctionSubscriptiononCreateRangerAlertpostAuth0FunctionAppSyncFunction36F54D4F",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnCreateRangerAlertDataResolverFnSubscriptionOnCreateRangerAlertDataResolverFnAppSyncFunction280C2AC4",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onCreateRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnCreateRangerAlertResolver"
+   }
+  },
+  "SubscriptiononUpdateRangerAlertauth0FunctionSubscriptiononUpdateRangerAlertauth0FunctionAppSyncFunctionDEFC8071": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononUpdateRangerAlertauth0Function/SubscriptiononUpdateRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateRangerAlertpostAuth0FunctionSubscriptiononUpdateRangerAlertpostAuth0FunctionAppSyncFunction208915A9": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononUpdateRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononUpdateRangerAlertpostAuth0Function/SubscriptiononUpdateRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnUpdateRangerAlertDataResolverFnSubscriptionOnUpdateRangerAlertDataResolverFnAppSyncFunction1C780B80": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnUpdateRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnUpdateRangerAlertDataResolverFn/SubscriptionOnUpdateRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononUpdateRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "onUpdateRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateRangerAlertauth0FunctionSubscriptiononUpdateRangerAlertauth0FunctionAppSyncFunctionDEFC8071",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononUpdateRangerAlertpostAuth0FunctionSubscriptiononUpdateRangerAlertpostAuth0FunctionAppSyncFunction208915A9",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnUpdateRangerAlertDataResolverFnSubscriptionOnUpdateRangerAlertDataResolverFnAppSyncFunction1C780B80",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onUpdateRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnUpdateRangerAlertResolver"
+   }
+  },
+  "SubscriptiononDeleteRangerAlertauth0FunctionSubscriptiononDeleteRangerAlertauth0FunctionAppSyncFunction6A85F5B5": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteRangerAlertauth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/d01a85a7e1c50273d7078990da300e811095a7671cd5d0d3ac8d475cc4c8b124.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononDeleteRangerAlertauth0Function/SubscriptiononDeleteRangerAlertauth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteRangerAlertpostAuth0FunctionSubscriptiononDeleteRangerAlertpostAuth0FunctionAppSyncFunction9D04359D": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptiononDeleteRangerAlertpostAuth0Function",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c1721bcd774e27c514d3454b5be4f9bdd094c0161b57ddf053d618e3b0086a77.vtl"
+    },
+    "ResponseMappingTemplate": "$util.toJson({})"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptiononDeleteRangerAlertpostAuth0Function/SubscriptiononDeleteRangerAlertpostAuth0Function.AppSyncFunction"
+   }
+  },
+  "SubscriptionOnDeleteRangerAlertDataResolverFnSubscriptionOnDeleteRangerAlertDataResolverFnAppSyncFunction89DAA370": {
+   "Type": "AWS::AppSync::FunctionConfiguration",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "DataSourceName": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPINONEDS88EBB60DName"
+    },
+    "FunctionVersion": "2018-05-29",
+    "Name": "SubscriptionOnDeleteRangerAlertDataResolverFn",
+    "RequestMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/fe3c43ada4b9d681a5e2312663ef7a73386424d73b73e51f8e2e9d4b50f7c502.vtl"
+    },
+    "ResponseMappingTemplateS3Location": {
+     "Fn::Sub": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/e0cff47fb007f0bbf2a4e43ca256d6aa7ec109821769fd79fa7c5e83f0e7f9fc.vtl"
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/SubscriptionOnDeleteRangerAlertDataResolverFn/SubscriptionOnDeleteRangerAlertDataResolverFn.AppSyncFunction"
+   }
+  },
+  "SubscriptiononDeleteRangerAlertResolver": {
+   "Type": "AWS::AppSync::Resolver",
+   "Properties": {
+    "ApiId": {
+     "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+    },
+    "FieldName": "onDeleteRangerAlert",
+    "Kind": "PIPELINE",
+    "PipelineConfig": {
+     "Functions": [
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteRangerAlertauth0FunctionSubscriptiononDeleteRangerAlertauth0FunctionAppSyncFunction6A85F5B5",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptiononDeleteRangerAlertpostAuth0FunctionSubscriptiononDeleteRangerAlertpostAuth0FunctionAppSyncFunction9D04359D",
+        "FunctionId"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "SubscriptionOnDeleteRangerAlertDataResolverFnSubscriptionOnDeleteRangerAlertDataResolverFnAppSyncFunction89DAA370",
+        "FunctionId"
+       ]
+      }
+     ]
+    },
+    "RequestMappingTemplate": {
+     "Fn::Join": [
+      "",
+      [
+       "$util.qr($ctx.stash.put(\"typeName\", \"Subscription\"))\n$util.qr($ctx.stash.put(\"fieldName\", \"onDeleteRangerAlert\"))\n$util.qr($ctx.stash.put(\"conditions\", []))\n$util.qr($ctx.stash.put(\"metadata\", {}))\n$util.qr($ctx.stash.metadata.put(\"dataSourceType\", \"NONE\"))\n$util.qr($ctx.stash.metadata.put(\"apiId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"connectionAttributes\", {}))\n\n$util.qr($ctx.stash.put(\"authRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthauthenticatedUserRole2ABFADA2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"unauthRole\", \"arn:",
+       {
+        "Ref": "AWS::Partition"
+       },
+       ":sts::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":assumed-role/",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthunauthenticatedUserRole75E333F2Ref"
+       },
+       "/CognitoIdentityCredentials\"))\n$util.qr($ctx.stash.put(\"identityPoolId\", \"",
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fauthNestedStackauthNestedStackResource4F8F28ACOutputsamplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+       },
+       "\"))\n$util.qr($ctx.stash.put(\"adminRoles\", []))\n$util.toJson({})"
+      ]
+     ]
+    },
+    "ResponseMappingTemplate": "$util.toJson($ctx.prev.result)",
+    "TypeName": "Subscription"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/subscriptionOnDeleteRangerAlertResolver"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/1WO0WrDMAxFv6XvjhZS9gFrwh63key9KLYS3Dh2sOSWEvLvw+noGAiuDrro3gqq1xLKA9640GYqnO1h/SAWMp2gnlQ9+C+MOJNQzFAHb6zY4FVLHFLUpOrEEuY/HPxzxxufV3P3OAfTwzf2jk7IpCzOsLbBPdzB0aZwWfjuNazNbm/6BgW758v/9J68ziXq4Ac7poh7o99kd6W4KT6ekZmE4S2L4iOckp5IcoEtez+TLEnUfu4ER+vHTflgCC78cq1KyHO4sLVFTF7sTNA+9Ach54krNgEAAA=="
+   },
+   "Metadata": {
+    "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/data/amplifyData/RangerAlert/CDKMetadata/Default"
+   },
+   "Condition": "CDKMetadataAvailable"
+  }
+ },
+ "Outputs": {
+  "GetAttRangerAlertTableStreamArn": {
+   "Description": "Your DynamoDB table StreamArn.",
+   "Value": {
+    "Fn::GetAtt": [
+     "RangerAlertTable",
+     "TableStreamArn"
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "GetAtt:RangerAlertTable:StreamArn"
+      ]
+     ]
+    }
+   }
+  },
+  "GetAttRangerAlertTableName": {
+   "Description": "Your DynamoDB table name.",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "RangerAlert-",
+      {
+       "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+      },
+      "-NONE"
+     ]
+    ]
+   },
+   "Export": {
+    "Name": {
+     "Fn::Join": [
+      ":",
+      [
+       {
+        "Ref": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2fdataamplifyDataGraphQLAPI73589617ApiId"
+       },
+       "GetAtt:RangerAlertTable:Name"
+      ]
+     ]
+    }
+   }
+  }
+ }
+}
