@@ -31,7 +31,9 @@ yarn-error.*
 *.pem
 
 # local env files
-.env*.local
+.env
+.env.*
+!.env.example
 
 # typescript
 *.tsbuildinfo
@@ -41,3 +43,12 @@ app-example
 # generated native folders
 /ios
 /android
+
+# generated knowledge database artifacts
+/data/ingestion/raw/
+/data/ingestion/normalized/
+/data/ingestion/manifests/
+/data/ingestion/exports/
+
+# staged offline bundle for local app testing
+/assets/data/

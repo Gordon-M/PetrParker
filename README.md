@@ -80,6 +80,28 @@ stores/
 
 ---
 
+## Knowledge Database
+
+The first backend workstream is documented in-repo:
+
+- [Knowledge database spec](./docs/knowledge-database-spec.md)
+- [Offline SQLite schema](./docs/sqlite-schema.sql)
+- [AWS S3 ingestion setup](./docs/aws-s3-ingestion-setup.md)
+- [Shared park contracts](./types/parks.ts)
+- [Ingestion service layout](./services/ingestion/README.md)
+
+This is the foundation for the California State Parks catalog, offline bundle generation, and the Bedrock-backed ranger knowledge base.
+
+For local mobile testing, stage the generated bundle into app assets:
+
+```bash
+npm run app:refresh-offline-bundle
+```
+
+That copies the latest generated SQLite file into `assets/data/` so the Expo app can open it with `expo-sqlite`.
+
+---
+
 ## Environment Variables
 
 Copy `.env.example` to `.env` and fill in the values.  
