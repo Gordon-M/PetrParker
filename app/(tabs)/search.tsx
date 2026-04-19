@@ -16,11 +16,11 @@ import { useColorScheme } from '@/hooks/use-color-scheme';
 const RANGER_GREEN = '#2D5A27';
 
 const PARKS_DATA = [
-  { id: '1', name: 'Yosemite', location: 'California', distance: 12 },
-  { id: '2', name: 'Zion', location: 'Utah', distance: 150 },
-  { id: '3', name: 'Glacier', location: 'Montana', distance: 600 },
-  { id: '4', name: 'Yellowstone', location: 'Wyoming', distance: 850 },
-  { id: '5', name: 'Acadia', location: 'Maine', distance: 2100 },
+  { id: '1', name: 'Yosemite', location: 'California', distance: 12, lat: 37.8651, lng: -119.5383 },
+  { id: '2', name: 'Zion', location: 'Utah', distance: 150, lat: 37.2982, lng: -113.0263 },
+  { id: '3', name: 'Glacier', location: 'Montana', distance: 600, lat: 48.7596, lng: -113.7870 },
+  { id: '4', name: 'Yellowstone', location: 'Wyoming', distance: 850, lat: 44.4280, lng: -110.5885 },
+  { id: '5', name: 'Acadia', location: 'Maine', distance: 2100, lat: 44.3386, lng: -68.2733 },
 ];
 
 type SortType = 'distance' | 'alphabetical';
@@ -101,7 +101,23 @@ export default function Search() {
           <TouchableOpacity style={styles.secondaryBtn} onPress={() => Alert.alert("Offline", "Download started")}>
             <Text style={styles.secondaryBtnText}>Offline</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => router.push('/')} style={styles.primaryBtn}>
+          <TouchableOpacity 
+            onPress={() => {
+              const park = PARKS_DATA.find(p => p.id === selectedId);
+              if (park) {
+                router.push({
+                  pathname: '/',
+                  params: { 
+                    name: park.name,
+                    lat: park.lat,
+                    lng: park.lng,
+                    distance: park.distance
+                  }
+                });
+              }
+            }} 
+            style={styles.primaryBtn}
+          >
             <Text style={styles.primaryBtnText}>Open Maps</Text>
           </TouchableOpacity>
         </View>
