@@ -17,15 +17,17 @@ export default function HomeScreen() {
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status === 'granted') {
-        let currentLocation = await Location.getCurrentPositionAsync({});
-        setLocation(currentLocation);
+      if (status !== "granted") {
+        setErrorMsg("Permission denied");
+        return;
       }
+      let currentLocation = await Location.getCurrentPositionAsync({});
+      setLocation(currentLocation);
     })();
   }, []);
 
   useEffect(() => {
-    if (selectedPark && mapRef.current) {
+    if (selectedPark && mapRef.current && !locationError) {
       mapRef.current.animateToRegion({
         latitude: selectedPark.lat,
         longitude: selectedPark.lng,
