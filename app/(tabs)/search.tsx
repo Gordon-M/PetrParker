@@ -154,8 +154,9 @@ export default function Search() {
       />
 
       <Modal visible={modalVisible} animationType="slide" transparent onRequestClose={() => setModalVisible(false)}>
-        <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => setModalVisible(false)}>
-          <TouchableOpacity activeOpacity={1} style={[styles.modalSheet, { backgroundColor: isDark ? '#1C1C1E' : '#FFF', flex: 1 }]}>
+        <View style={styles.modalOverlay}>
+          <TouchableOpacity style={StyleSheet.absoluteFill} activeOpacity={1} onPress={() => setModalVisible(false)} />
+          <View style={[styles.modalSheet, { backgroundColor: isDark ? '#1C1C1E' : '#FFF', flex: 1 }]}>
             <View style={styles.modalHandle} />
             <View style={styles.modalHeader}>
               <View style={{ flex: 1 }}>
@@ -223,8 +224,8 @@ export default function Search() {
                 </Text>
               </View>
             )}
-          </TouchableOpacity>
-        </TouchableOpacity>
+          </View>
+        </View>
       </Modal>
     </SafeAreaView>
   );
@@ -268,7 +269,7 @@ const styles = StyleSheet.create({
   parkName: { fontSize: 16, fontWeight: '700' },
   parkMeta: { color: '#8E8E93', marginTop: 2, fontSize: 13 },
   parkDistance: { color: RANGER_GREEN, marginTop: 4, fontSize: 13, fontWeight: '600' },
-  modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end' },
+  modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end', position: 'relative' },
   modalSheet: { maxHeight: '90%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: 20 },
   modalHandle: { width: 40, height: 4, backgroundColor: '#E0E0E0', borderRadius: 2, alignSelf: 'center', marginBottom: 16 },
   modalHeader: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 20 },
