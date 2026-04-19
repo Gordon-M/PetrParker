@@ -65,22 +65,27 @@ $search_results$`,
 
     const ragResponse = await agentClient.send(ragCommand);
     const rawText = ragResponse.output?.text || '';
+    const citations = ragResponse.citations ?? [];
+
+    console.log('[KB] Raw response:', rawText.slice(0, 300));
+    console.log('[KB] Citations count:', citations.length);
+    console.log('[KB] Source URLs:', citations.flatMap(c => c.retrievedReferences ?? []).map(r => r.location?.webLocation?.url).filter(Boolean));
 
     try {
       const jsonMatch = rawText.match(/\{[\s\S]*\}/);
       if (jsonMatch) {
-        return JSON.parse(jsonMatch[0]) as ParkInfo;
+        const parsed = JSON.parse(jsonMatch[0]) as ParkInfo;
+        console.log('[KB] SUCCESS - data from Knowledge Base');
+        return parsed;
       }
     } catch {
-      // KB returned something but not JSON — fall through to direct Claude call
+      console.log('[KB] Could not parse JSON from KB response, falling back to Claude');
     }
 
-    // Step 2: fallback — ask Claude directly if KB had no relevant content
     return await getFromClaude(parkName);
 
-  } catch (err) {
-    console.error('[Bedrock KB] Error:', err);
-    // If KB fails entirely, fall back to direct Claude
+  } catch (err: any) {
+    console.error('[KB] Error:', err?.message || err);
     try {
       return await getFromClaude(parkName);
     } catch {
