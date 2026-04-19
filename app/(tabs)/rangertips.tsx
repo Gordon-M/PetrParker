@@ -15,6 +15,7 @@ import { useRouter } from 'expo-router';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import Feather from '@expo/vector-icons/Feather';
+import { usePark } from '@/store/ParkContent';
 
 const RANGER_GREEN = '#2D5A27';
 
@@ -27,11 +28,12 @@ const MOCK_ALERTS = [
   { id: '2', title: 'Trail Closure', detail: 'North Rim trail closed due to flash flood damage.', time: '1h ago', type: 'hazard', icon: 'slash' },
   { id: '3', title: 'Heavy Winds', detail: 'Winds expected above 6,000ft. Secure all loose gear.', time: '3h ago', type: 'wind', icon: 'wind' },
   { id: '4', title: 'Flash Flooding', detail: 'Sudden rain causing rising waters in canyons.', time: '4h ago', type: 'rain', icon: 'cloud-rain' },
-  { id: '5', title: 'Parking Full', detail: 'The main Yosemite Falls parking lot is currently at capacity.', time: '5h ago', type: 'info', icon: 'truck' },
+  { id: '5', title: 'Parking Full', detail: 'The main parking lot is currently at capacity.', time: '5h ago', type: 'info', icon: 'truck' },
 ];
 
 export default function RangerTips() {
   const router = useRouter();
+  const { selectedPark } = usePark();
   const isDark = useColorScheme() === 'dark';
   const [alerts, setAlerts] = useState(MOCK_ALERTS);
   const [expandedId, setExpandedId] = useState<string | null>(null);
@@ -65,7 +67,9 @@ export default function RangerTips() {
           <Text style={[styles.title, { color: isDark ? '#FFF' : RANGER_GREEN }]}>Ranger Tips</Text>
           <TouchableOpacity onPress={() => router.push('/search')} style={styles.locationRow}>
             <IconSymbol name="mappin.and.ellipse" size={18} color={RANGER_GREEN} />
-            <Text style={[styles.locationText, { color: isDark ? '#CCC' : '#666' }]}>Yosemite</Text>
+            <Text style={[styles.locationText, { color: isDark ? '#CCC' : '#666' }]}>
+              {selectedPark ? selectedPark.name : 'Select a Park'}
+            </Text>
           </TouchableOpacity>
         </View>
 
@@ -184,7 +188,6 @@ const styles = StyleSheet.create({
   cameraWrapper: { alignItems: 'center', marginVertical: 20 },
   cameraBtn: { flexDirection: 'row', alignItems: 'center', paddingVertical: 14, paddingHorizontal: 22, borderRadius: 20, gap: 12, elevation: 4, shadowColor: '#000', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.1, shadowRadius: 10 },
   cameraLabel: { fontWeight: '700', fontSize: 16, color: '#FFF' },
-  // Pushed this up even further to clear the 50px + 30px floating tab bar
   amenitiesRow: { flexDirection: 'row', justifyContent: 'space-between', marginBottom: 110 }, 
   amenityItem: { alignItems: 'center', gap: 10 },
   amenityCircle: { width: 62, height: 62, borderRadius: 20, justifyContent: 'center', alignItems: 'center' },
