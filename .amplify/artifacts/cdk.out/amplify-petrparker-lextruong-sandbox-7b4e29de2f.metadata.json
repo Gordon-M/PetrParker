@@ -1,0 +1,359 @@
+{
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f": [
+    {
+      "type": "aws:cdk:stack-tags",
+      "data": [
+        {
+          "key": "amplify:deployment-type",
+          "value": "sandbox"
+        },
+        {
+          "key": "created-by",
+          "value": "amplify"
+        }
+      ]
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/deploymentType": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "deploymentType"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/region": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "region"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/userPoolId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "userPoolId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/webClientId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "webClientId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/identityPoolId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "identityPoolId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/authRegion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "authRegion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/allowUnauthenticatedIdentities": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "allowUnauthenticatedIdentities"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/signupAttributes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "signupAttributes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/usernameAttributes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "usernameAttributes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/verificationMechanisms": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "verificationMechanisms"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordPolicyMinLength": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordPolicyMinLength"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordPolicyRequirements": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordPolicyRequirements"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/mfaConfiguration": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "mfaConfiguration"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/mfaTypes": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "mfaTypes"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/passwordlessOptions": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "passwordlessOptions"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/socialProviders": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "socialProviders"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthCognitoDomain": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthCognitoDomain"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthScope": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthScope"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthRedirectSignIn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthRedirectSignIn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthRedirectSignOut": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthRedirectSignOut"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthResponseType": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthResponseType"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/oauthClientId": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "oauthClientId"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/groups": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "groups"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/definedFunctions": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "definedFunctions"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolD742BE52Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolAppClientC0AC3445Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthUserPoolAppClientC0AC3445Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2fauthamplifyAuthIdentityPoolDEE26423Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth.NestedStack/auth.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "auth179371D7"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Ref": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Ref"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function.NestedStack/function.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "function1351588B"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/ParkTracker": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "ParkTracker"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/TrackerLink": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "TrackerLink"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/reference-to-amplifypetrparkerlextruongsandbox7b4e29de2ffunctionNestedStackfunctionNestedStackResourceBBE961E6Outputs.amplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "referencetoamplifypetrparkerlextruongsandbox7b4e29de2ffunctionNestedStackfunctionNestedStackResourceBBE961E6Outputsamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambdaAB6F7AC4Arn"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack.NestedStack/GeoStack.NestedStackResource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeoStackD3BB67A1"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/IdentityPool": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthIdentityPool3FDE84CC"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/IdentityPoolRoleAttachment": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthIdentityPoolRoleAttachment045F17C8"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambda1C58676E"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/GeofenceRule/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeofenceRuleAD8F51D9"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/GeofenceRule/AllowEventRuleamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambda7D6280A3": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "GeofenceRuleAllowEventRuleamplifypetrparkerlextruongsandbox7b4e29de2ffunctiongeofencehandlerlambda7D6280A34D2118CF"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/GeoStack/CDKMetadata/Condition": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadataAvailable"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/UserPool/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthUserPool4BA7F805"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/UserPoolAppClient/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthUserPoolAppClient2626C6F8"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/authenticatedUserRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthauthenticatedUserRoleD8DA3689"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/unauthenticatedUserRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthunauthenticatedUserRole2B524D9E"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambdaServiceRoleB5CA9487"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/auth/amplifyAuth/unauthenticatedUserRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "amplifyAuthunauthenticatedUserRoleDefaultPolicy1AB22815"
+    }
+  ],
+  "/amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "geofencehandlerlambdaServiceRoleDefaultPolicy55493AED"
+    }
+  ]
+}

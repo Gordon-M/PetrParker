@@ -1,10 +1,10 @@
 import { BedrockAgentRuntimeClient, RetrieveAndGenerateCommand } from "@aws-sdk/client-bedrock-agent-runtime";
 
-const client = new BedrockAgentRuntimeClient({ region: "us-east-1" });
+const client = new BedrockAgentRuntimeClient({ region: "us-west-2" });
 
 export const handler = async (event: any) => {
   const parkName = event.detail.GeofenceId;
-  const kbId = "ABC123XYZ";
+  const kbId = "CVG6L7VSH0";
 
   const command = new RetrieveAndGenerateCommand({
     input: { text: `What are the specific safety warnings for hikers in ${parkName}?` },
@@ -12,7 +12,7 @@ export const handler = async (event: any) => {
       type: "KNOWLEDGE_BASE",
       knowledgeBaseConfiguration: {
         knowledgeBaseId: kbId,
-        modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-haiku-20240307-v1:0",
+        modelArn: "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-haiku-20240307-v1:0",
       }
     }
   });

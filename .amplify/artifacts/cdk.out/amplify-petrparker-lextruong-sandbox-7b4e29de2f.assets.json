@@ -1,0 +1,76 @@
+{
+  "version": "53.0.0",
+  "files": {
+    "8bc638db04968ca168278b8d6da26ff28e318e054adc21fad9bf5614f17689b4": {
+      "displayName": "function/geofence-handler-lambda/Code",
+      "source": {
+        "path": "asset.8bc638db04968ca168278b8d6da26ff28e318e054adc21fad9bf5614f17689b4",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region-f31aac5a": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "8bc638db04968ca168278b8d6da26ff28e318e054adc21fad9bf5614f17689b4.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "6e184d4b51edbfd7ff2b45895c20873bab1f7d00c696b9cf69460721ea59a8ac": {
+      "displayName": "auth Nested Stack Template",
+      "source": {
+        "path": "amplifypetrparkerlextruongsandbox7b4e29de2fauth0EDF1CE3.nested.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-7293ba05": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "6e184d4b51edbfd7ff2b45895c20873bab1f7d00c696b9cf69460721ea59a8ac.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "5a959b11aa7b85dd93f0f56bb9b28b2590b804b9c513b96926d144194a0c9be4": {
+      "displayName": "function Nested Stack Template",
+      "source": {
+        "path": "amplifypetrparkerlextruongsandbox7b4e29de2ffunction3D6A69FD.nested.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-335df4c4": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "5a959b11aa7b85dd93f0f56bb9b28b2590b804b9c513b96926d144194a0c9be4.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "382cee91262d34ab516f4a1f615f3fa3c6db930eb6179bfa9cec934e3593b4b4": {
+      "displayName": "GeoStack Nested Stack Template",
+      "source": {
+        "path": "amplifypetrparkerlextruongsandbox7b4e29de2fGeoStack0808259D.nested.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-8a72cc36": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "382cee91262d34ab516f4a1f615f3fa3c6db930eb6179bfa9cec934e3593b4b4.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "7173dad5e220c514fe2f7f63f68b0cf847681e364285ac34d362e152e6450163": {
+      "displayName": "amplify-petrparker-lextruong-sandbox-7b4e29de2f Template",
+      "source": {
+        "path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region-6e771bec": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "7173dad5e220c514fe2f7f63f68b0cf847681e364285ac34d362e152e6450163.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

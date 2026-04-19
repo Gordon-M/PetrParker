@@ -1,5 +1,6 @@
 import { defineBackend } from '@aws-amplify/backend';
 import { geofenceHandler } from './functions/geofence-handler/resource';
+import { auth } from './auth/resource';
 import { CfnTracker, CfnTrackerConsumer } from 'aws-cdk-lib/aws-location';
 import { Rule } from 'aws-cdk-lib/aws-events';
 import { LambdaFunction } from 'aws-cdk-lib/aws-events-targets';
@@ -9,9 +10,7 @@ import { PolicyStatement, Effect } from 'aws-cdk-lib/aws-iam';
  * @section 1: Core Amplify Setup
  * This initializes the backend and registers your Lambda function.
  */
-const backend = defineBackend({
-  geofenceHandler, 
-});
+const backend = defineBackend({ auth, geofenceHandler });
 
 /**
  * @section 2: The GeoStack (The Custom Infrastructure)
@@ -19,6 +18,13 @@ const backend = defineBackend({
  * We create a "Stack" to hold resources that aren't part of standard Amplify.
  */
 const geoStack = backend.createStack('GeoStack');
+backend.auth.resources.unauthenticatedUserIamRole.addToPrincipalPolicy(
+  new PolicyStatement({
+    effect: Effect.ALLOW,
+    actions: ['geo:BatchUpdateDevicePosition'],
+    resources: [`arn:aws:geo:${geoStack.region}:${geoStack.account}:tracker/CAParkTracker`],
+  })
+);
 
 // The name of the collection you already made in the AWS Console
 const EXISTING_COLLECTION_NAME = 'CaliforniaStateParkBoundaries'; 
