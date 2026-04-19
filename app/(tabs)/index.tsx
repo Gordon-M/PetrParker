@@ -1,20 +1,17 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet, Text, View, ActivityIndicator, SafeAreaView } from 'react-native';
+import MapView, { PROVIDER_GOOGLE, Marker } from 'react-native-maps';
+import * as Location from 'expo-location';
 import { useLocationTracker } from "@/hooks/useLocationTracker";
-import * as Location from "expo-location";
-import React, { useEffect, useState } from "react";
-import {
-  ActivityIndicator,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View
-} from "react-native";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import { usePark } from '@/store/ParkContent'; // Import Context
 
 export default function HomeScreen() {
+  const mapRef = useRef<MapView>(null);
+  const { selectedPark } = usePark(); // Use Context
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [location, setLocation] = useState<Location.LocationObject | null>(
     null,
   );
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const { errorMsg: locationError } = useLocationTracker(
     "test-device-big-basin-redwoods-03",
   );
@@ -31,34 +28,42 @@ export default function HomeScreen() {
     })();
   }, []);
 
-  if (!location && !errorMsg && !locationError) {
-    return (
-      <View style={styles.center}>
-        <ActivityIndicator size="large" color="#2D5A27" />
-      </View>
-    );
-  }
+  // Move map when selectedPark changes in Context
+  useEffect(() => {
+    if (selectedPark && mapRef.current && !locationError) {
+      mapRef.current.animateToRegion({
+        latitude: selectedPark.lat,
+        longitude: selectedPark.lng,
+        latitudeDelta: 0.05,
+        longitudeDelta: 0.05,
+      }, 1000);
+    }
+  }, [selectedPark]);
+
+  if (!location) return <ActivityIndicator style={{flex:1}} />;
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* 1. Title Box */}
       <View style={styles.headerBox}>
-        <Text style={styles.headerText}>PetrParks</Text>
+        <Text style={styles.headerText}>{selectedPark?.name || 'PetrParks'}</Text>
       </View>
-
-      {/* 2. Constrained Map Box */}
       <View style={styles.mapContainer}>
         <MapView
+          ref={mapRef}
           style={styles.map}
           provider={PROVIDER_GOOGLE}
           showsUserLocation={true}
           initialRegion={{
-            latitude: location?.coords.latitude || 36.7783,
-            longitude: location?.coords.longitude || -119.4179,
+            latitude: location.coords.latitude,
+            longitude: location.coords.longitude,
             latitudeDelta: 0.05,
             longitudeDelta: 0.05,
           }}
-        />
+        >
+          {selectedPark && (
+            <Marker coordinate={{ latitude: selectedPark.lat, longitude: selectedPark.lng }} title={selectedPark.name} />
+          )}
+        </MapView>
       </View>
 
       {/* Placeholder for other UI elements */}

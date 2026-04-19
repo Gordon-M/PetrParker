@@ -12,21 +12,33 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router'; 
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { usePark } from '@/store/ParkContent';
 
 const RANGER_GREEN = '#2D5A27';
 
-const PARKS_DATA = [
-  { id: '1', name: 'Yosemite', location: 'California', distance: 12 },
-  { id: '2', name: 'Zion', location: 'Utah', distance: 150 },
-  { id: '3', name: 'Glacier', location: 'Montana', distance: 600 },
-  { id: '4', name: 'Yellowstone', location: 'Wyoming', distance: 850 },
-  { id: '5', name: 'Acadia', location: 'Maine', distance: 2100 },
+// Strict typing to prevent the 'undefined' error
+interface ParkItem {
+  id: string;
+  name: string;
+  location: string;
+  distance: number;
+  lat: number;
+  lng: number;
+}
+
+const PARKS_DATA: ParkItem[] = [
+  { id: '1', name: 'Yosemite', location: 'California', distance: 12, lat: 37.8651, lng: -119.5383 },
+  { id: '2', name: 'Zion', location: 'Utah', distance: 150, lat: 37.2982, lng: -113.0263 },
+  { id: '3', name: 'Glacier', location: 'Montana', distance: 600, lat: 48.7596, lng: -113.7870 },
+  { id: '4', name: 'Yellowstone', location: 'Wyoming', distance: 850, lat: 44.4280, lng: -110.5885 },
+  { id: '5', name: 'Acadia', location: 'Maine', distance: 2100, lat: 44.3386, lng: -68.2733 },
 ];
 
 type SortType = 'distance' | 'alphabetical';
 
 export default function Search() {
   const router = useRouter();
+  const { setSelectedPark } = usePark();
   const isDark = useColorScheme() === 'dark';
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortType>('distance');
@@ -47,7 +59,15 @@ export default function Search() {
     return result;
   }, [searchQuery, sortBy, isAscending]);
 
-  const renderParkItem = ({ item }: { item: typeof PARKS_DATA[0] }) => {
+  const handleOpenMaps = () => {
+    const park = PARKS_DATA.find(p => p.id === selectedId);
+    if (park) {
+      setSelectedPark(park);
+      router.push('/');
+    }
+  };
+
+  const renderParkItem = ({ item }: { item: ParkItem }) => {
     const isSelected = item.id === selectedId;
     return (
       <TouchableOpacity
@@ -101,7 +121,7 @@ export default function Search() {
           <TouchableOpacity style={styles.secondaryBtn} onPress={() => Alert.alert("Offline", "Download started")}>
             <Text style={styles.secondaryBtnText}>Offline</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => router.push('/')} style={styles.primaryBtn}>
+          <TouchableOpacity onPress={handleOpenMaps} style={styles.primaryBtn}>
             <Text style={styles.primaryBtnText}>Open Maps</Text>
           </TouchableOpacity>
         </View>
@@ -120,16 +140,14 @@ const styles = StyleSheet.create({
   filterBtn: { paddingVertical: 8, paddingHorizontal: 16, borderRadius: 20, borderWidth: 1, borderColor: RANGER_GREEN },
   activeFilter: { backgroundColor: RANGER_GREEN, borderColor: RANGER_GREEN },
   filterText: { fontSize: 14, color: RANGER_GREEN, fontWeight: '600' },
-  // Increased bottom padding to clear the 50px + 30px bottom tab bar
   listContent: { paddingHorizontal: 20, paddingBottom: 180 }, 
   parkCard: { flexDirection: 'row', alignItems: 'center', padding: 20, borderRadius: 20, marginBottom: 15, borderWidth: 1, borderColor: '#E0E0E0' },
   selectedCard: { borderWidth: 2, borderColor: RANGER_GREEN },
   parkName: { fontSize: 18, fontWeight: '700' },
   parkLocation: { color: '#8E8E93', marginTop: 4 },
-  // Shifted the action sheet up so it doesn't overlap with the floating tab bar
   actionSheet: { position: 'absolute', bottom: 100, left: 20, right: 20, padding: 16, borderRadius: 24, flexDirection: 'row', gap: 12, elevation: 10, shadowColor: '#000', shadowOpacity: 0.15, shadowRadius: 12 },
   primaryBtn: { flex: 1.5, backgroundColor: RANGER_GREEN, alignItems: 'center', justifyContent: 'center', padding: 16, borderRadius: 16 },
   primaryBtnText: { color: '#FFF', fontWeight: 'bold' },
   secondaryBtn: { flex: 1, borderWidth: 1, borderColor: RANGER_GREEN, alignItems: 'center', justifyContent: 'center', padding: 16, borderRadius: 16 },
   secondaryBtnText: { color: RANGER_GREEN, fontWeight: '700' }
-});
+}); 
