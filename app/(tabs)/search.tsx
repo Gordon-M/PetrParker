@@ -11,11 +11,13 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useRouter } from 'expo-router';
 import * as Location from 'expo-location';
 import Feather from '@expo/vector-icons/Feather';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { CA_STATE_PARKS, Park, getDistanceMiles } from '@/constants/parks';
 import { getParkInfo, ParkInfo, getBedrockDebugInfo } from '@/services/bedrock';
+import { usePark } from '@/store/ParkContent';
 
 const RANGER_GREEN = '#2D5A27';
 
@@ -26,11 +28,13 @@ interface ParkWithDistance extends Park {
 }
 
 export default function Search() {
+  const router = useRouter();
+  const { setSelectedPark } = usePark();
   const isDark = useColorScheme() === 'dark';
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortType>('distance');
   const [isAscending, setIsAscending] = useState(true);
-  const [selectedPark, setSelectedPark] = useState<ParkWithDistance | null>(null);
+  const [activePark, setActivePark] = useState<ParkWithDistance | null>(null);
   const [userLocation, setUserLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [parkInfo, setParkInfo] = useState<ParkInfo | null>(null);
   const [loadingInfo, setLoadingInfo] = useState(false);
@@ -72,7 +76,7 @@ export default function Search() {
   }, [parksWithDistance, searchQuery, sortBy, isAscending]);
 
   const openParkDetail = useCallback(async (park: ParkWithDistance) => {
-    setSelectedPark(park);
+    setActivePark(park);
     setParkInfo(null);
     setModalVisible(true);
     setLoadingInfo(true);
@@ -87,6 +91,13 @@ export default function Search() {
       setLoadingInfo(false);
     }
   }, []);
+
+  const handleViewOnMap = useCallback(() => {
+    if (!activePark) return;
+    setSelectedPark({ name: activePark.name, lat: activePark.lat, lng: activePark.lon, distance: activePark.distance ?? undefined });
+    setModalVisible(false);
+    router.push('/');
+  }, [activePark, setSelectedPark, router]);
 
   const renderParkItem = ({ item }: { item: ParkWithDistance }) => (
     <TouchableOpacity
@@ -148,10 +159,10 @@ export default function Search() {
             <View style={styles.modalHandle} />
             <View style={styles.modalHeader}>
               <View style={{ flex: 1 }}>
-                <Text style={[styles.modalParkName, { color: isDark ? '#FFF' : '#000' }]}>{selectedPark?.name}</Text>
-                <Text style={styles.modalParkMeta}>{selectedPark?.region} • {selectedPark?.type}</Text>
-                {selectedPark?.distance !== null && (
-                  <Text style={styles.modalParkMeta}>{selectedPark?.distance} mi away</Text>
+                <Text style={[styles.modalParkName, { color: isDark ? '#FFF' : '#000' }]}>{activePark?.name}</Text>
+                <Text style={styles.modalParkMeta}>{activePark?.region} • {activePark?.type}</Text>
+                {activePark?.distance !== null && (
+                  <Text style={styles.modalParkMeta}>{activePark?.distance} mi away</Text>
                 )}
               </View>
               <TouchableOpacity onPress={() => setModalVisible(false)}>
@@ -197,6 +208,11 @@ export default function Search() {
                   <Text style={[styles.infoText, { color: isDark ? '#CCC' : '#333' }]}>{parkInfo.bestSeason}</Text>
                 </InfoSection>
 
+                <TouchableOpacity style={styles.mapBtn} onPress={handleViewOnMap}>
+                  <Feather name="map-pin" size={18} color="#FFF" />
+                  <Text style={styles.mapBtnText}>View on Map</Text>
+                </TouchableOpacity>
+
                 <View style={{ height: 30 }} />
               </ScrollView>
             ) : (
@@ -231,7 +247,7 @@ function InfoSection({ title, icon, color, isDark, children }: {
 function InfoPill({ label, value, isDark }: { label: string; value: string; isDark: boolean }) {
   return (
     <View style={[styles.pill, { backgroundColor: isDark ? '#2C2C2E' : '#F2F2F7', flex: 1 }]}>
-      <Text style={[styles.pillLabel, { color: isDark ? '#8E8E93' : '#8E8E93' }]}>{label}</Text>
+      <Text style={styles.pillLabel}>{label}</Text>
       <Text style={[styles.pillValue, { color: isDark ? '#FFF' : '#000' }]}>{value}</Text>
     </View>
   );
@@ -253,7 +269,7 @@ const styles = StyleSheet.create({
   parkMeta: { color: '#8E8E93', marginTop: 2, fontSize: 13 },
   parkDistance: { color: RANGER_GREEN, marginTop: 4, fontSize: 13, fontWeight: '600' },
   modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.55)', justifyContent: 'flex-end' },
-  modalSheet: { height: '80%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: 20 },
+  modalSheet: { height: '85%', borderTopLeftRadius: 32, borderTopRightRadius: 32, padding: 20 },
   modalHandle: { width: 40, height: 4, backgroundColor: '#E0E0E0', borderRadius: 2, alignSelf: 'center', marginBottom: 16 },
   modalHeader: { flexDirection: 'row', alignItems: 'flex-start', marginBottom: 20 },
   modalParkName: { fontSize: 22, fontWeight: '800' },
@@ -268,6 +284,8 @@ const styles = StyleSheet.create({
   bulletItem: { fontSize: 15, lineHeight: 24 },
   rowSections: { flexDirection: 'row', gap: 12, marginBottom: 20 },
   pill: { padding: 14, borderRadius: 16, gap: 4 },
-  pillLabel: { fontSize: 12, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5 },
+  pillLabel: { fontSize: 12, fontWeight: '600', textTransform: 'uppercase', letterSpacing: 0.5, color: '#8E8E93' },
   pillValue: { fontSize: 14, fontWeight: '600' },
+  mapBtn: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 8, backgroundColor: RANGER_GREEN, padding: 16, borderRadius: 16, marginTop: 8 },
+  mapBtnText: { color: '#FFF', fontWeight: '700', fontSize: 16 },
 });
