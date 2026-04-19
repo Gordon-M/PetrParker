@@ -45,7 +45,7 @@
     "@aws-amplify/backend": "^1.22.0",
     "@aws-amplify/backend-cli": "^1.8.2",
     "@types/react": "~19.1.0",
-    "aws-cdk-lib": "^2.234.1",
+    "aws-cdk-lib": "^2.250.0",
     "constructs": "^10.6.0",
     "esbuild": "^0.28.0",
     "eslint": "^9.25.0",
