@@ -4,6 +4,7 @@
   "ParkTracker": {
    "Type": "AWS::Location::Tracker",
    "Properties": {
+    "EventBridgeEnabled": true,
     "Tags": [
      {
       "Key": "amplify:deployment-type",
@@ -59,10 +60,25 @@
      "detail-type": [
       "Location Geofence Event"
      ],
+     "resources": [
+      {
+       "Fn::Join": [
+        "",
+        [
+         "arn:aws:geo:",
+         {
+          "Ref": "AWS::Region"
+         },
+         ":",
+         {
+          "Ref": "AWS::AccountId"
+         },
+         ":geofence-collection/CaliforniaStateParkBoundaries"
+        ]
+       ]
+      }
+     ],
      "detail": {
-      "CollectionName": [
-       "CaliforniaStateParkBoundaries"
-      ],
       "EventType": [
        "ENTER"
       ]

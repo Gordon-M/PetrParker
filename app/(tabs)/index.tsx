@@ -1,17 +1,29 @@
-import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Dimensions, ActivityIndicator, SafeAreaView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import * as Location from 'expo-location';
+import { useLocationTracker } from "@/hooks/useLocationTracker";
+import * as Location from "expo-location";
+import React, { useEffect, useState } from "react";
+import {
+  ActivityIndicator,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 export default function HomeScreen() {
-  const [location, setLocation] = useState<Location.LocationObject | null>(null);
+  const [location, setLocation] = useState<Location.LocationObject | null>(
+    null,
+  );
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const { errorMsg: locationError } = useLocationTracker(
+    "test-device-big-basin-redwoods-03",
+  );
 
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission denied');
+      if (status !== "granted") {
+        setErrorMsg("Permission denied");
         return;
       }
       let currentLocation = await Location.getCurrentPositionAsync({});
@@ -19,7 +31,7 @@ export default function HomeScreen() {
     })();
   }, []);
 
-  if (!location && !errorMsg) {
+  if (!location && !errorMsg && !locationError) {
     return (
       <View style={styles.center}>
         <ActivityIndicator size="large" color="#2D5A27" />
@@ -51,7 +63,9 @@ export default function HomeScreen() {
 
       {/* Placeholder for other UI elements */}
       <View style={styles.contentArea}>
-        <Text style={styles.subText}>Find your next adventure in CA State Parks.</Text>
+        <Text style={styles.subText}>
+          Find your next adventure in CA State Parks.
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -60,53 +74,53 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F9F9F9',
+    backgroundColor: "#F9F9F9",
   },
   headerBox: {
     marginTop: 20,
     marginHorizontal: 25, // Keeps title box aligned with map
     marginBottom: 20,
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF",
     paddingVertical: 15,
     borderRadius: 12,
     borderWidth: 3,
-    borderColor: '#2D5A27',
+    borderColor: "#2D5A27",
     // Shadow
     elevation: 3,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
   },
   headerText: {
     fontSize: 22,
-    fontWeight: 'bold',
-    color: '#2D5A27',
-    textAlign: 'center',
+    fontWeight: "bold",
+    color: "#2D5A27",
+    textAlign: "center",
   },
   mapContainer: {
-    width: '85%',            // Constrains width to 85% of screen
-    height: 400,             // Fixed height so it doesn't fill screen
-    alignSelf: 'center',     // Centers the map horizontally
+    width: "85%", // Constrains width to 85% of screen
+    height: 400, // Fixed height so it doesn't fill screen
+    alignSelf: "center", // Centers the map horizontally
     borderRadius: 25,
-    overflow: 'hidden',
+    overflow: "hidden",
     borderWidth: 3,
-    borderColor: '#2D5A27',
+    borderColor: "#2D5A27",
   },
   map: {
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
   contentArea: {
     marginTop: 20,
-    alignItems: 'center',
+    alignItems: "center",
   },
   subText: {
-    color: '#666',
-    fontStyle: 'italic',
+    color: "#666",
+    fontStyle: "italic",
   },
   center: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

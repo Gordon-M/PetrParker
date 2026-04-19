@@ -90,10 +90,13 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "8bc638db04968ca168278b8d6da26ff28e318e054adc21fad9bf5614f17689b4.zip"
+     "S3Key": "5c62ec15fcbaf06e391d9d7083d402c36cf68ca1eb01c147d0d5a5b2ee9bc6f4.zip"
     },
     "Environment": {
      "Variables": {
+      "JORDAN_AWS_ACCESS_KEY_ID": "AKIA2I77CCPDQABRIWAO",
+      "JORDAN_AWS_SECRET_ACCESS_KEY": "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",
+      "KB_ID": "CVG6L7VSH0",
       "AMPLIFY_SSM_ENV_CONFIG": "{}"
      }
     },
@@ -133,7 +136,7 @@
    "DeletionPolicy": "Delete",
    "Metadata": {
     "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/Resource",
-    "aws:asset:path": "asset.8bc638db04968ca168278b8d6da26ff28e318e054adc21fad9bf5614f17689b4",
+    "aws:asset:path": "asset.5c62ec15fcbaf06e391d9d7083d402c36cf68ca1eb01c147d0d5a5b2ee9bc6f4",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }

@@ -248,7 +248,10 @@
     "PolicyDocument": {
      "Statement": [
       {
-       "Action": "geo:BatchUpdateDevicePosition",
+       "Action": [
+        "geo:BatchUpdateDevicePosition",
+        "geo:GetDevicePosition"
+       ],
        "Effect": "Allow",
        "Resource": {
         "Fn::Join": [
