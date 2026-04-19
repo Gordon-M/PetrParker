@@ -1,21 +1,46 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
+import { Platform } from 'react-native';
 
 import { HapticTab } from '@/components/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import Feather from '@expo/vector-icons/Feather';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const isDark = colorScheme === 'dark';
+  
+  // Brand color constant
+  const RANGER_GREEN = '#2D5A27';
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        // Use your teammate's chosen Tint from constants OR brand green
+        tabBarActiveTintColor: RANGER_GREEN, 
         headerShown: false,
         tabBarButton: HapticTab,
-      }}>
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          position: 'absolute',
+          alignSelf: 'center',
+          left: 0,
+          right: 0,      
+          bottom: 30,
+          marginHorizontal: '12.5%',
+          height: 60, // Sightly taller for better touch targets
+          borderRadius: 32,
+          backgroundColor: isDark ? '#1C1C1E' : '#FFFFFF',
+          borderTopWidth: 0,
+          elevation: 8,
+          shadowColor: '#000',
+          shadowOffset: { width: 0, height: 4 },
+          shadowOpacity: 0.2,
+          shadowRadius: 8,
+          paddingBottom: 0,
+        }}}>
       <Tabs.Screen
         name="index"
         options={{
@@ -24,10 +49,17 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="tips"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Tips',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="info" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          title: 'Search',
+          tabBarIcon: ({ color }) => <Feather name="search" size={28} color={color} />,
         }}
       />
     </Tabs>
