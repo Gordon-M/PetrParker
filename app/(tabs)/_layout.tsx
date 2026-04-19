@@ -49,10 +49,10 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="tips"
+        name="rangertips"
         options={{
           title: 'Tips',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="info" color={color} />,
+          tabBarIcon: ({ color }) => <Feather name="alert-triangle" size={28} color={color} />,
         }}
       />
       <Tabs.Screen

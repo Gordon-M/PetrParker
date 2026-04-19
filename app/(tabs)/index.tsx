@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Dimensions, ActivityIndicator, SafeAreaView } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView from 'react-native-maps';
 import * as Location from 'expo-location';
 
 export default function HomeScreen() {
@@ -38,7 +38,6 @@ export default function HomeScreen() {
       <View style={styles.mapContainer}>
         <MapView
           style={styles.map}
-          provider={PROVIDER_GOOGLE}
           showsUserLocation={true}
           initialRegion={{
             latitude: location?.coords.latitude || 36.7783,
