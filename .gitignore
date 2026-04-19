@@ -37,8 +37,13 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
+# Amplify CDK build artifacts
+.amplify/artifacts/
+
 app-example
 
 # generated native folders
 /ios
 /android
+.env
+env.local
