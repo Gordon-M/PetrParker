@@ -50,5 +50,5 @@ app-example
 /data/ingestion/manifests/
 /data/ingestion/exports/
 
-# staged offline bundle for local app testing
+# local offline bundle staging artifacts
 /assets/data/

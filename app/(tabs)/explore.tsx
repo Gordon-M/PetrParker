@@ -1,163 +1,112 @@
-import { Platform, ScrollView, StyleSheet, View } from 'react-native';
+import { Image } from 'expo-image';
+import { Platform, StyleSheet } from 'react-native';
 
+import { Collapsible } from '@/components/ui/collapsible';
+import { ExternalLink } from '@/components/external-link';
+import ParallaxScrollView from '@/components/parallax-scroll-view';
 import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
+import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Fonts } from '@/constants/theme';
-import { useOfflineCatalogDiagnostics } from '@/hooks/use-offline-park-catalog';
 
-export default function StatusTabScreen() {
-  if (Platform.OS === 'web') {
-    return (
-      <ThemedView style={styles.screen}>
-        <View style={styles.card}>
-          <ThemedText type="title" style={styles.title}>
-            Bundle Status
-          </ThemedText>
-          <ThemedText style={styles.body}>
-            Run the mobile app on iOS or Android to inspect the staged SQLite bundle.
-          </ThemedText>
-        </View>
+export default function TabTwoScreen() {
+  return (
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
+      headerImage={
+        <IconSymbol
+          size={310}
+          color="#808080"
+          name="chevron.left.forwardslash.chevron.right"
+          style={styles.headerImage}
+        />
+      }>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText
+          type="title"
+          style={{
+            fontFamily: Fonts.rounded,
+          }}>
+          Explore
+        </ThemedText>
       </ThemedView>
-    );
-  }
-
-  return <NativeStatusTabScreen />;
-}
-
-function NativeStatusTabScreen() {
-  const { diagnostics, error, isLoading } = useOfflineCatalogDiagnostics();
-
-  return (
-    <ThemedView style={styles.screen}>
-      <ScrollView contentContainerStyle={styles.content}>
-        <View style={[styles.card, styles.summaryCard]}>
-          <ThemedText style={styles.eyebrow}>Offline Validation</ThemedText>
-          <ThemedText type="title" style={styles.title}>
-            Bundle Status
-          </ThemedText>
-          <ThemedText style={styles.body}>
-            This screen reads straight from the staged SQLite bundle and confirms what the mobile
-            app can see offline right now.
-          </ThemedText>
-        </View>
-
-        {error ? (
-          <View style={styles.card}>
-            <ThemedText type="subtitle">Load Error</ThemedText>
-            <ThemedText style={styles.errorText}>{error}</ThemedText>
-          </View>
-        ) : null}
-
-        <View style={styles.card}>
-          <ThemedText type="subtitle">Bundle Manifest</ThemedText>
-          <View style={styles.metricRow}>
-            <Metric label="Version" value={diagnostics?.bundle.version ?? (isLoading ? '...' : 'n/a')} />
-            <Metric label="Generated" value={diagnostics?.bundle.generatedAt ?? (isLoading ? '...' : 'n/a')} />
-            <Metric label="Parks" value={String(diagnostics?.bundle.parkCount ?? '...')} />
-            <Metric
-              label="Snapshot"
-              value={diagnostics?.bundle.sourceSnapshotAt ?? (isLoading ? '...' : 'n/a')}
-            />
-          </View>
-        </View>
-
-        <View style={styles.card}>
-          <ThemedText type="subtitle">Table Counts</ThemedText>
-          <View style={styles.metricRow}>
-            <Metric label="Facilities" value={String(diagnostics?.counts.facilities ?? '...')} />
-            <Metric label="Routes" value={String(diagnostics?.counts.routes ?? '...')} />
-            <Metric label="Alerts" value={String(diagnostics?.counts.alerts ?? '...')} />
-            <Metric label="Docs" value={String(diagnostics?.counts.documents ?? '...')} />
-            <Metric label="Activities" value={String(diagnostics?.counts.activities ?? '...')} />
-            <Metric label="Amenities" value={String(diagnostics?.counts.amenities ?? '...')} />
-          </View>
-        </View>
-
-        <View style={styles.card}>
-          <ThemedText type="subtitle">Refresh Workflow</ThemedText>
-          <ThemedText style={styles.body}>
-            1. Run the ingestion pipeline and export the bundle.
-          </ThemedText>
-          <ThemedText style={styles.body}>
-            2. Run `npm run app:refresh-offline-bundle`.
-          </ThemedText>
-          <ThemedText style={styles.body}>
-            3. Restart Expo so the staged `assets/data/parks.sqlite` bundle is re-imported.
-          </ThemedText>
-        </View>
-      </ScrollView>
-    </ThemedView>
-  );
-}
-
-function Metric({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.metricCard}>
-      <ThemedText style={styles.metricLabel}>{label}</ThemedText>
-      <ThemedText style={styles.metricValue}>{value}</ThemedText>
-    </View>
+      <ThemedText>This app includes example code to help you get started.</ThemedText>
+      <Collapsible title="File-based routing">
+        <ThemedText>
+          This app has two screens:{' '}
+          <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> and{' '}
+          <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
+        </ThemedText>
+        <ThemedText>
+          The layout file in <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{' '}
+          sets up the tab navigator.
+        </ThemedText>
+        <ExternalLink href="https://docs.expo.dev/router/introduction">
+          <ThemedText type="link">Learn more</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="Android, iOS, and web support">
+        <ThemedText>
+          You can open this project on Android, iOS, and the web. To open the web version, press{' '}
+          <ThemedText type="defaultSemiBold">w</ThemedText> in the terminal running this project.
+        </ThemedText>
+      </Collapsible>
+      <Collapsible title="Images">
+        <ThemedText>
+          For static images, you can use the <ThemedText type="defaultSemiBold">@2x</ThemedText> and{' '}
+          <ThemedText type="defaultSemiBold">@3x</ThemedText> suffixes to provide files for
+          different screen densities
+        </ThemedText>
+        <Image
+          source={require('@/assets/images/react-logo.png')}
+          style={{ width: 100, height: 100, alignSelf: 'center' }}
+        />
+        <ExternalLink href="https://reactnative.dev/docs/images">
+          <ThemedText type="link">Learn more</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="Light and dark mode components">
+        <ThemedText>
+          This template has light and dark mode support. The{' '}
+          <ThemedText type="defaultSemiBold">useColorScheme()</ThemedText> hook lets you inspect
+          what the user&apos;s current color scheme is, and so you can adjust UI colors accordingly.
+        </ThemedText>
+        <ExternalLink href="https://docs.expo.dev/develop/user-interface/color-themes/">
+          <ThemedText type="link">Learn more</ThemedText>
+        </ExternalLink>
+      </Collapsible>
+      <Collapsible title="Animations">
+        <ThemedText>
+          This template includes an example of an animated component. The{' '}
+          <ThemedText type="defaultSemiBold">components/HelloWave.tsx</ThemedText> component uses
+          the powerful{' '}
+          <ThemedText type="defaultSemiBold" style={{ fontFamily: Fonts.mono }}>
+            react-native-reanimated
+          </ThemedText>{' '}
+          library to create a waving hand animation.
+        </ThemedText>
+        {Platform.select({
+          ios: (
+            <ThemedText>
+              The <ThemedText type="defaultSemiBold">components/ParallaxScrollView.tsx</ThemedText>{' '}
+              component provides a parallax effect for the header image.
+            </ThemedText>
+          ),
+        })}
+      </Collapsible>
+    </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
+  headerImage: {
+    color: '#808080',
+    bottom: -90,
+    left: -35,
+    position: 'absolute',
   },
-  content: {
-    padding: 20,
-    gap: 14,
-  },
-  card: {
-    backgroundColor: '#edf2ee',
-    borderRadius: 24,
-    padding: 18,
-    gap: 12,
-  },
-  summaryCard: {
-    backgroundColor: '#e3ece3',
-  },
-  eyebrow: {
-    fontSize: 13,
-    letterSpacing: 1.1,
-    textTransform: 'uppercase',
-    opacity: 0.74,
-  },
-  title: {
-    fontFamily: Fonts.rounded,
-    lineHeight: 34,
-  },
-  body: {
-    fontSize: 15,
-    lineHeight: 22,
-    color: '#30423a',
-  },
-  errorText: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: '#8b2f2f',
-  },
-  metricRow: {
+  titleContainer: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 10,
-  },
-  metricCard: {
-    minWidth: 130,
-    backgroundColor: 'rgba(255,255,255,0.66)',
-    borderRadius: 18,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    gap: 4,
-  },
-  metricLabel: {
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 0.7,
-    color: '#567166',
-  },
-  metricValue: {
-    fontSize: 15,
-    lineHeight: 20,
-    color: '#1f2e28',
+    gap: 8,
   },
 });
