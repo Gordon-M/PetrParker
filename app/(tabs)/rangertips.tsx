@@ -58,7 +58,7 @@ export default function RangerTips() {
     setAlerts((prev) => prev.filter((alert) => alert.id !== id));
   };
 
-  const handleInfoPress = async () => {
+  const handleInfoPress = async (category: string) => {
     if (!selectedPark) {
       alert("Please select a park first!");
       return;
@@ -67,26 +67,23 @@ export default function RangerTips() {
     setInfoLoading(true);
     setShowInfoModal(true);
 
-    // --- MOCK AWS BEDROCK RESPONSE ---
-    // This simulates the structure Bedrock returns
-    const mockAwsResponse = {
-      output: {
-        text: `Ranger Intelligence Report for ${selectedPark.name}:
-        
-  • GEOLOGY: This area is known for its high-altitude alpine tundra and ancient granite peaks.
-  • WILDLIFE: Common sightings include bighorn sheep and golden eagles. Always secure food in bear-resistant containers.
-  • SAFETY: Weather can change in minutes. Lightning is a high risk above the treeline after 1:00 PM.
-  • RANGER NOTE: The main visitor center is currently offering guided walks at 10:00 AM daily.`
-      },
-      citations: [{ generatedResponsePart: { textResponsePart: { span: { start: 0, end: 100 } } } }]
+    // --- MOCK AWS BEDROCK RESPONSES BY CATEGORY ---
+    const mockResponses: Record<string, string> = {
+      "Info": `General Report for ${selectedPark.name}: \n\nLocated in the heart of the wilderness, this park offers 24/7 access to primary trailheads. The visitor center is open 9am-5pm.`,
+      
+      "Safety": `Safety Protocol for ${selectedPark.name}: \n\n• High altitude: Stay hydrated. \n• Wildlife: Use bear lockers for all scented items. \n• Weather: Afternoon thunderstorms are common; descend from ridges by noon.`,
+      
+      "Nature": `Ecological Profile of ${selectedPark.name}: \n\nThis park is home to several endangered plant species. You may observe marmots, elk, and rare alpine flowers. Please stay on marked paths to protect the crust.`,
+      
+      "Trails": `Trail Intelligence for ${selectedPark.name}: \n\n• Loop Trail: Moderate, 4.2 miles. \n• Summit Climb: Strenuous, 12 miles roundtrip. \n• Current Status: All trails are clear except for the North Pass which has lingering snow.`
     };
 
     try {
-      // Simulate network delay (1.5 seconds)
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 1200));
       
-      // Set the state using the mock response text
-      setParkDetail(mockAwsResponse.output.text);
+      // Simulate picking the right response based on the button clicked
+      const detail = mockResponses[category] || "General park intelligence retrieved.";
+      setParkDetail(detail);
     } catch (error) {
       setParkDetail("Error retrieving data from the knowledge base.");
     } finally {
@@ -167,10 +164,10 @@ export default function RangerTips() {
         </View>
 
         <View style={styles.amenitiesRow}>
-          <AmenityIcon name="info.circle.fill" label="Info" color="#007AFF" isDark={isDark} onPress={handleInfoPress} />
-          <AmenityIcon name="shield.fill" label="Safety" color="#34C759" isDark={isDark} />
-          <AmenityIcon name="leaf.fill" label="Nature" color="#FF9500" isDark={isDark} />
-          <AmenityIcon name="map.fill" label="Trails" color="#5856D6" isDark={isDark} />
+          <AmenityIcon name="info.circle.fill" label="Info" color="#007AFF" isDark={isDark} onPress={() => handleInfoPress("Info")} />
+          <AmenityIcon name="shield.fill" label="Safety" color="#34C759" isDark={isDark} onPress={() => handleInfoPress("Safety")} />
+          <AmenityIcon name="leaf.fill" label="Nature" color="#FF9500" isDark={isDark} onPress={() => handleInfoPress("Nature")} />
+          <AmenityIcon name="map.fill" label="Trails" color="#5856D6" isDark={isDark} onPress={() => handleInfoPress("Trails")} />
         </View>
 
         <Modal animationType="slide" transparent={true} visible={historyVisible} onRequestClose={() => setHistoryVisible(false)}>
@@ -277,15 +274,19 @@ const styles = StyleSheet.create({
   modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.6)', justifyContent: 'flex-end' },
   modalContent: { height: '70%', borderTopLeftRadius: 35, borderTopRightRadius: 35, padding: 25 },
   modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 25 },
-  modalTitle: { fontSize: 26, fontWeight: '800' },
+  modalTitle: { fontSize: 24, fontWeight: '800' },
   historyItem: { paddingVertical: 18, borderBottomWidth: 1 },
   historyItemTitle: { fontSize: 18, fontWeight: '700' },
   historyTime: { fontSize: 13, color: '#8E8E93' },
-  infoScroll: { marginVertical: 15 },
+  infoScroll: { 
+    marginVertical: 10,
+    paddingHorizontal: 5,
+   },
   parkDetailText: { 
     fontSize: 16, 
-    lineHeight: 24, 
-    fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace' // Makes it look like a report
+    lineHeight: 26, 
+    fontWeight: '500', 
+    letterSpacing: 0.3,
   },
   loadingContainer: { padding: 40, alignItems: 'center' },
   loadingText: { marginTop: 15, color: '#8E8E93', fontWeight: '600' },
