@@ -4,13 +4,14 @@ import { LambdaFunction } from "aws-cdk-lib/aws-events-targets";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
 import { CfnTracker, CfnTrackerConsumer } from "aws-cdk-lib/aws-location";
 import { auth } from "./auth/resource";
+import { data } from "./data/resource";
 import { geofenceHandler } from "./functions/geofence-handler/resource";
 
 /**
  * @section 1: Core Amplify Setup
  * This initializes the backend and registers your Lambda function.
  */
-const backend = defineBackend({ auth, geofenceHandler });
+const backend = defineBackend({ auth, data, geofenceHandler });
 
 /**
  * @section 2: The GeoStack (The Custom Infrastructure)

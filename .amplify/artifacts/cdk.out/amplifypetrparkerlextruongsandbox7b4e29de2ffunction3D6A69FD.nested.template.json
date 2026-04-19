@@ -90,7 +90,7 @@
      "S3Bucket": {
       "Fn::Sub": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}"
      },
-     "S3Key": "5c62ec15fcbaf06e391d9d7083d402c36cf68ca1eb01c147d0d5a5b2ee9bc6f4.zip"
+     "S3Key": "99a4567b25931ed680ead785fd6df0406866764ea45922eeb1963a4b5c826343.zip"
     },
     "Environment": {
      "Variables": {
@@ -136,7 +136,7 @@
    "DeletionPolicy": "Delete",
    "Metadata": {
     "aws:cdk:path": "amplify-petrparker-lextruong-sandbox-7b4e29de2f/function/geofence-handler-lambda/Resource",
-    "aws:asset:path": "asset.5c62ec15fcbaf06e391d9d7083d402c36cf68ca1eb01c147d0d5a5b2ee9bc6f4",
+    "aws:asset:path": "asset.99a4567b25931ed680ead785fd6df0406866764ea45922eeb1963a4b5c826343",
     "aws:asset:is-bundled": true,
     "aws:asset:property": "Code"
    }

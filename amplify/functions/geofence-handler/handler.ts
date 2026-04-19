@@ -120,5 +120,6 @@ export const handler = async (event: any) => {
   );
   console.log(`📚 Citation count: ${response.citations?.length || 0}`);
   console.log(`📋 Safety Tips: ${outputText}`);
+
   return outputText;
 };
