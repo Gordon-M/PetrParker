@@ -3,9 +3,12 @@ import { IconSymbol } from "@/components/ui/icon-symbol";
 import { useColorScheme } from "@/hooks/use-color-scheme";
 import Feather from "@expo/vector-icons/Feather";
 import { generateClient } from "aws-amplify/data";
+import * as ImagePicker from "expo-image-picker";
 import { useRouter } from "expo-router";
 import React, { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
+  Image,
   LayoutAnimation,
   Modal,
   Platform,
@@ -14,13 +17,9 @@ import {
   Text,
   TouchableOpacity,
   UIManager,
-  Image,
-  ActivityIndicator,
-  Alert,
-  View,
-} from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import * as ImagePicker from 'expo-image-picker';
+  View
+} from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const RANGER_GREEN = "#2D5A27";
 const dataClient = generateClient<Schema>();
@@ -120,13 +119,15 @@ export default function RangerTips() {
 
     const loadAlerts = async () => {
       try {
-        console.log('📂 Attempting to load RangerAlert records from Amplify Data...');
+        console.log(
+          "📂 Attempting to load RangerAlert records from Amplify Data...",
+        );
         const { data } = await dataClient.models.RangerAlert.list({
           limit: 50,
         });
 
         console.log(`✅ Loaded ${data.length} RangerAlert records`);
-        
+
         const mapped = data
           .slice()
           .sort((a, b) => {
@@ -140,7 +141,10 @@ export default function RangerTips() {
         setAlerts(mapped.length > 0 ? mapped.slice(0, 10) : MOCK_ALERTS);
         setHistoryAlerts(mapped.length > 0 ? mapped : MOCK_ALERTS);
       } catch (error) {
-        console.log('⚠️  Failed to load RangerAlert records, keeping mock alerts', error);
+        console.log(
+          "⚠️  Failed to load RangerAlert records, keeping mock alerts",
+          error,
+        );
         if (!alive) return;
         setAlerts(MOCK_ALERTS);
         setHistoryAlerts(MOCK_ALERTS);
@@ -197,28 +201,31 @@ export default function RangerTips() {
       setAiModalVisible(true);
 
       try {
-        const response = await fetch(process.env.EXPO_PUBLIC_API_URL as string, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ 
-            imageBase64: result.assets[0].base64 // Sending the raw string
-          }),
-        });
+        const response = await fetch(
+          process.env.EXPO_PUBLIC_API_URL as string,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              imageBase64: result.assets[0].base64, // Sending the raw string
+            }),
+          },
+        );
 
         const data = await response.json();
-        
+
         if (data.error) {
           setAiResult(`Ranger Station Error: ${data.error}`);
         } else {
           setAiResult(data.description);
         }
-    } catch (error: any) {
-      setAiResult(`Connection Error: ${error.message}`);
-    } finally {
-      setAiLoading(false);
+      } catch (error: any) {
+        setAiResult(`Connection Error: ${error.message}`);
+      } finally {
+        setAiLoading(false);
+      }
     }
-  }
-};
+  };
 
   const handleCloseAlert = (id: string) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
@@ -227,13 +234,14 @@ export default function RangerTips() {
 
   const handleInfoPress = async (category: string) => {
     const mockResponses: Record<string, string> = {
-      "Info": `General Report for ${currentParkName}:\n\nLocated in the heart of the wilderness, this park offers 24/7 access to primary trailheads. The visitor center is open 9am-5pm.`,
-      "Safety": `Safety Protocol for ${currentParkName}:\n\n• High altitude: Stay hydrated.\n• Wildlife: Use bear lockers for all scented items.\n• Weather: Afternoon thunderstorms are common; descend from ridges by noon.`,
-      "Nature": `Ecological Profile for ${currentParkName}:\n\nThis park is home to several endangered plant species. You may observe marmots, elk, and rare alpine flowers. Please stay on marked paths to protect the crust.`,
-      "Trails": `Trail Intelligence for ${currentParkName}:\n\n• Loop Trail: Moderate, 4.2 miles.\n• Summit Climb: Strenuous, 12 miles roundtrip.\n• Current Status: All trails are clear except for the North Pass which has lingering snow.`,
+      Info: `General Report for ${currentParkName}:\n\nLocated in the heart of the wilderness, this park offers 24/7 access to primary trailheads. The visitor center is open 9am-5pm.`,
+      Safety: `Safety Protocol for ${currentParkName}:\n\n• High altitude: Stay hydrated.\n• Wildlife: Use bear lockers for all scented items.\n• Weather: Afternoon thunderstorms are common; descend from ridges by noon.`,
+      Nature: `Ecological Profile for ${currentParkName}:\n\nThis park is home to several endangered plant species. You may observe marmots, elk, and rare alpine flowers. Please stay on marked paths to protect the crust.`,
+      Trails: `Trail Intelligence for ${currentParkName}:\n\n• Loop Trail: Moderate, 4.2 miles.\n• Summit Climb: Strenuous, 12 miles roundtrip.\n• Current Status: All trails are clear except for the North Pass which has lingering snow.`,
     };
 
-    const detail = mockResponses[category] || "General park intelligence retrieved.";
+    const detail =
+      mockResponses[category] || "General park intelligence retrieved.";
     setParkDetail(detail);
     setShowInfoModal(true);
   };
@@ -378,75 +386,124 @@ export default function RangerTips() {
             name="info.circle.fill"
             label="Info"
             color="#007AFF"
-            isDark={isDark} onPress={() => handleInfoPress("Info")}
+            isDark={isDark}
+            onPress={() => handleInfoPress("Info")}
           />
           <AmenityIcon
             name="shield.fill"
             label="Safety"
             color="#34C759"
-            isDark={isDark} onPress={() => handleInfoPress("Safety")}
+            isDark={isDark}
+            onPress={() => handleInfoPress("Safety")}
           />
           <AmenityIcon
             name="leaf.fill"
             label="Nature"
             color="#FF9500"
-            isDark={isDark} onPress={() => handleInfoPress("Nature")}
+            isDark={isDark}
+            onPress={() => handleInfoPress("Nature")}
           />
           <AmenityIcon
             name="map.fill"
             label="Trails"
             color="#5856D6"
-            isDark={isDark} onPress={() => handleInfoPress("Trails")}
+            isDark={isDark}
+            onPress={() => handleInfoPress("Trails")}
           />
         </View>
 
-    {/* --- AI RESULT MODAL --- */}
-    <Modal animationType="fade" transparent={true} visible={aiModalVisible}>
-      <View style={styles.aiOverlay}>
-        <View style={[styles.aiContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
-          <Text style={[styles.modalTitle, { color: isDark ? '#FFF' : RANGER_GREEN, textAlign: 'center' }]}>
-            Ranger Vision
-          </Text>
-
-          {aiLoading ? (
-            <View style={styles.loadingBox}>
-              <ActivityIndicator size="large" color={RANGER_GREEN} />
-              <Text style={{ marginTop: 15, color: '#8E8E93', fontWeight: '600' }}>
-                Consulting Knowledge Base...
-              </Text>
-            </View>
-          ) : (
-            <View>
-              {capturedImage && (
-                <Image source={{ uri: capturedImage }} style={styles.aiImage} />
-              )}
-              
-              <ScrollView style={{ maxHeight: 200 }} showsVerticalScrollIndicator={true}>
-                <Text style={[styles.aiResultText, { color: isDark ? '#DDD' : '#333' }]}>
-                  {aiResult}
-                </Text>
-              </ScrollView>
-
-              <TouchableOpacity 
-                style={styles.closeAiBtn} 
-                onPress={() => { 
-                  setAiModalVisible(false); 
-                  setAiResult(null); 
-                  setCapturedImage(null);
-                }}
+        {/* --- AI RESULT MODAL --- */}
+        <Modal animationType="fade" transparent={true} visible={aiModalVisible}>
+          <View style={styles.aiOverlay}>
+            <View
+              style={[
+                styles.aiContent,
+                { backgroundColor: isDark ? "#1C1C1E" : "#FFF" },
+              ]}
+            >
+              <Text
+                style={[
+                  styles.modalTitle,
+                  {
+                    color: isDark ? "#FFF" : RANGER_GREEN,
+                    textAlign: "center",
+                  },
+                ]}
               >
-                <Text style={styles.closeAiBtnText}>Close</Text>
-              </TouchableOpacity>
+                Ranger Vision
+              </Text>
+
+              {aiLoading ? (
+                <View style={styles.loadingBox}>
+                  <ActivityIndicator size="large" color={RANGER_GREEN} />
+                  <Text
+                    style={{
+                      marginTop: 15,
+                      color: "#8E8E93",
+                      fontWeight: "600",
+                    }}
+                  >
+                    Consulting Knowledge Base...
+                  </Text>
+                </View>
+              ) : (
+                <View>
+                  {capturedImage && (
+                    <Image
+                      source={{ uri: capturedImage }}
+                      style={styles.aiImage}
+                    />
+                  )}
+
+                  <ScrollView
+                    style={{ maxHeight: 200 }}
+                    showsVerticalScrollIndicator={true}
+                  >
+                    <Text
+                      style={[
+                        styles.aiResultText,
+                        { color: isDark ? "#DDD" : "#333" },
+                      ]}
+                    >
+                      {aiResult}
+                    </Text>
+                  </ScrollView>
+
+                  <TouchableOpacity
+                    style={styles.closeAiBtn}
+                    onPress={() => {
+                      setAiModalVisible(false);
+                      setAiResult(null);
+                      setCapturedImage(null);
+                    }}
+                  >
+                    <Text style={styles.closeAiBtnText}>Close</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
             </View>
-          )}
-        </View>
-      </View>
-    </Modal>
+          </View>
+        </Modal>
 
         {/* --- HISTORY MODAL --- */}
-        <Modal animationType="slide" transparent={true} visible={historyVisible} onRequestClose={() => setHistoryVisible(false)}>
-          <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPressOut={() => setHistoryVisible(false)}>
-            <TouchableOpacity activeOpacity={1} style={[styles.modalContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={historyVisible}
+          onRequestClose={() => setHistoryVisible(false)}
+        >
+          <TouchableOpacity
+            style={styles.modalOverlay}
+            activeOpacity={1}
+            onPressOut={() => setHistoryVisible(false)}
+          >
+            <TouchableOpacity
+              activeOpacity={1}
+              style={[
+                styles.modalContent,
+                { backgroundColor: isDark ? "#1C1C1E" : "#FFF" },
+              ]}
+            >
               <View style={styles.modalHeader}>
                 <Text
                   style={[
@@ -488,16 +545,26 @@ export default function RangerTips() {
         </Modal>
       </View>
 
-      <Modal 
-        visible={showInfoModal} 
-        animationType="slide" 
+      <Modal
+        visible={showInfoModal}
+        animationType="slide"
         transparent={true}
         onRequestClose={() => setShowInfoModal(false)}
       >
         <View style={styles.modalOverlay}>
-          <View style={[styles.modalContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
+          <View
+            style={[
+              styles.modalContent,
+              { backgroundColor: isDark ? "#1C1C1E" : "#FFF" },
+            ]}
+          >
             <View style={styles.modalHeader}>
-              <Text style={[styles.modalTitle, { color: isDark ? '#FFF' : RANGER_GREEN }]}>
+              <Text
+                style={[
+                  styles.modalTitle,
+                  { color: isDark ? "#FFF" : RANGER_GREEN },
+                ]}
+              >
                 Park Intelligence
               </Text>
               <TouchableOpacity onPress={() => setShowInfoModal(false)}>
@@ -505,17 +572,30 @@ export default function RangerTips() {
               </TouchableOpacity>
             </View>
 
-            <ScrollView showsVerticalScrollIndicator={false} style={styles.infoScroll}>
-              <Text style={[styles.parkDetailText, { color: isDark ? '#EEE' : '#333' }]}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
+              style={styles.infoScroll}
+            >
+              <Text
+                style={[
+                  styles.parkDetailText,
+                  { color: isDark ? "#EEE" : "#333" },
+                ]}
+              >
                 {parkDetail}
               </Text>
             </ScrollView>
 
-            <TouchableOpacity 
-              style={[styles.primaryBtn, { backgroundColor: RANGER_GREEN, marginTop: 20 }]} 
+            <TouchableOpacity
+              style={[
+                styles.primaryBtn,
+                { backgroundColor: RANGER_GREEN, marginTop: 20 },
+              ]}
               onPress={() => setShowInfoModal(false)}
             >
-              <Text style={{ color: '#FFF', fontWeight: 'bold', fontSize: 16 }}>Back to Ranger Tips</Text>
+              <Text style={{ color: "#FFF", fontWeight: "bold", fontSize: 16 }}>
+                Back to Ranger Tips
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -612,13 +692,42 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   amenityLabel: { fontSize: 13, fontWeight: "700" },
-  aiOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.85)', justifyContent: 'center', padding: 20 },
+  aiOverlay: {
+    flex: 1,
+    backgroundColor: "rgba(0,0,0,0.85)",
+    justifyContent: "center",
+    padding: 20,
+  },
   aiContent: { borderRadius: 30, padding: 25, elevation: 10 },
-  loadingBox: { padding: 40, alignItems: 'center' },
-  aiImage: { width: '100%', height: 220, borderRadius: 20, marginBottom: 20, resizeMode: 'cover' },
-  aiResultText: { fontSize: 16, lineHeight: 24, marginBottom: 20, fontWeight: '500' },
-  closeAiBtn: { backgroundColor: RANGER_GREEN, paddingVertical: 16, borderRadius: 18, alignItems: 'center', marginTop: 10, width: '100%' },
-  closeAiBtnText: { color: '#FFF', fontWeight: '800', fontSize: 18, textTransform: 'uppercase', letterSpacing: 1 },
+  loadingBox: { padding: 40, alignItems: "center" },
+  aiImage: {
+    width: "100%",
+    height: 220,
+    borderRadius: 20,
+    marginBottom: 20,
+    resizeMode: "cover",
+  },
+  aiResultText: {
+    fontSize: 16,
+    lineHeight: 24,
+    marginBottom: 20,
+    fontWeight: "500",
+  },
+  closeAiBtn: {
+    backgroundColor: RANGER_GREEN,
+    paddingVertical: 16,
+    borderRadius: 18,
+    alignItems: "center",
+    marginTop: 10,
+    width: "100%",
+  },
+  closeAiBtnText: {
+    color: "#FFF",
+    fontWeight: "800",
+    fontSize: 18,
+    textTransform: "uppercase",
+    letterSpacing: 1,
+  },
   modalOverlay: {
     flex: 1,
     backgroundColor: "rgba(0,0,0,0.6)",
@@ -640,23 +749,23 @@ const styles = StyleSheet.create({
   historyItem: { paddingVertical: 18, borderBottomWidth: 1 },
   historyItemTitle: { fontSize: 18, fontWeight: "700" },
   historyTime: { fontSize: 13, color: "#8E8E93" },
-  infoScroll: { 
+  infoScroll: {
     marginVertical: 10,
     paddingHorizontal: 5,
-   },
-  parkDetailText: { 
-    fontSize: 16, 
-    lineHeight: 26, 
-    fontWeight: '500', 
+  },
+  parkDetailText: {
+    fontSize: 16,
+    lineHeight: 26,
+    fontWeight: "500",
     letterSpacing: 0.3,
   },
-  loadingContainer: { padding: 40, alignItems: 'center' },
-  loadingText: { marginTop: 15, color: '#8E8E93', fontWeight: '600' },
-  primaryBtn: { 
-    paddingVertical: 15, 
-    borderRadius: 15, 
-    alignItems: 'center', 
-    justifyContent: 'center',
-    width: '100%' 
+  loadingContainer: { padding: 40, alignItems: "center" },
+  loadingText: { marginTop: 15, color: "#8E8E93", fontWeight: "600" },
+  primaryBtn: {
+    paddingVertical: 15,
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
   },
 });
