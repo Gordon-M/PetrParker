@@ -9,6 +9,7 @@ import {
   Modal,
   Platform,
   UIManager,
+  ActivityIndicator,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRouter } from 'expo-router';
@@ -38,6 +39,9 @@ export default function RangerTips() {
   const [alerts, setAlerts] = useState(MOCK_ALERTS);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [historyVisible, setHistoryVisible] = useState(false);
+  const [infoLoading, setInfoLoading] = useState(false);
+  const [parkDetail, setParkDetail] = useState("");
+  const [showInfoModal, setShowInfoModal] = useState(false);
 
   const getAlertStyle = (type: string) => {
     switch (type) {
@@ -52,6 +56,42 @@ export default function RangerTips() {
   const handleCloseAlert = (id: string) => {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
     setAlerts((prev) => prev.filter((alert) => alert.id !== id));
+  };
+
+  const handleInfoPress = async () => {
+    if (!selectedPark) {
+      alert("Please select a park first!");
+      return;
+    }
+
+    setInfoLoading(true);
+    setShowInfoModal(true);
+
+    // --- MOCK AWS BEDROCK RESPONSE ---
+    // This simulates the structure Bedrock returns
+    const mockAwsResponse = {
+      output: {
+        text: `Ranger Intelligence Report for ${selectedPark.name}:
+        
+  • GEOLOGY: This area is known for its high-altitude alpine tundra and ancient granite peaks.
+  • WILDLIFE: Common sightings include bighorn sheep and golden eagles. Always secure food in bear-resistant containers.
+  • SAFETY: Weather can change in minutes. Lightning is a high risk above the treeline after 1:00 PM.
+  • RANGER NOTE: The main visitor center is currently offering guided walks at 10:00 AM daily.`
+      },
+      citations: [{ generatedResponsePart: { textResponsePart: { span: { start: 0, end: 100 } } } }]
+    };
+
+    try {
+      // Simulate network delay (1.5 seconds)
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Set the state using the mock response text
+      setParkDetail(mockAwsResponse.output.text);
+    } catch (error) {
+      setParkDetail("Error retrieving data from the knowledge base.");
+    } finally {
+      setInfoLoading(false);
+    }
   };
 
   const toggleExpand = (id: string) => {
@@ -127,7 +167,7 @@ export default function RangerTips() {
         </View>
 
         <View style={styles.amenitiesRow}>
-          <AmenityIcon name="info.circle.fill" label="Info" color="#007AFF" isDark={isDark} />
+          <AmenityIcon name="info.circle.fill" label="Info" color="#007AFF" isDark={isDark} onPress={handleInfoPress} />
           <AmenityIcon name="shield.fill" label="Safety" color="#34C759" isDark={isDark} />
           <AmenityIcon name="leaf.fill" label="Nature" color="#FF9500" isDark={isDark} />
           <AmenityIcon name="map.fill" label="Trails" color="#5856D6" isDark={isDark} />
@@ -154,12 +194,54 @@ export default function RangerTips() {
           </TouchableOpacity>
         </Modal>
       </View>
+
+      <Modal 
+        visible={showInfoModal} 
+        animationType="slide" 
+        transparent={true}
+        onRequestClose={() => setShowInfoModal(false)}
+      >
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, { backgroundColor: isDark ? '#1C1C1E' : '#FFF' }]}>
+            <View style={styles.modalHeader}>
+              <Text style={[styles.modalTitle, { color: isDark ? '#FFF' : RANGER_GREEN }]}>
+                Park Intelligence
+              </Text>
+              <TouchableOpacity onPress={() => setShowInfoModal(false)}>
+                <Feather name="x-circle" size={28} color="#8E8E93" />
+              </TouchableOpacity>
+            </View>
+
+            <ScrollView showsVerticalScrollIndicator={false} style={styles.infoScroll}>
+              {infoLoading ? (
+                <View style={styles.loadingContainer}>
+                  <ActivityIndicator size="large" color={RANGER_GREEN} />
+                  <Text style={styles.loadingText}>Querying Knowledge Base...</Text>
+                </View>
+              ) : (
+                <Text style={[styles.parkDetailText, { color: isDark ? '#EEE' : '#333' }]}>
+                  {parkDetail}
+                </Text>
+              )}
+            </ScrollView>
+
+            {!infoLoading && (
+              <TouchableOpacity 
+                style={[styles.primaryBtn, { backgroundColor: RANGER_GREEN, marginTop: 20 }]} 
+                onPress={() => setShowInfoModal(false)}
+              >
+                <Text style={{ color: '#FFF', fontWeight: 'bold', fontSize: 16 }}>Back to Ranger Tips</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
 
-const AmenityIcon = ({ name, label, color, isDark }: any) => (
-  <TouchableOpacity style={styles.amenityItem}>
+const AmenityIcon = ({ name, label, color, isDark, onPress }: any) => (
+  <TouchableOpacity style={styles.amenityItem} onPress={onPress}>
     <View style={[styles.amenityCircle, { backgroundColor: isDark ? '#1C1C1E' : '#FFF', borderColor: '#E0E0E0', borderWidth: 1 }]}>
       <IconSymbol name={name} size={24} color={color} />
     </View>
@@ -199,4 +281,19 @@ const styles = StyleSheet.create({
   historyItem: { paddingVertical: 18, borderBottomWidth: 1 },
   historyItemTitle: { fontSize: 18, fontWeight: '700' },
   historyTime: { fontSize: 13, color: '#8E8E93' },
+  infoScroll: { marginVertical: 15 },
+  parkDetailText: { 
+    fontSize: 16, 
+    lineHeight: 24, 
+    fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace' // Makes it look like a report
+  },
+  loadingContainer: { padding: 40, alignItems: 'center' },
+  loadingText: { marginTop: 15, color: '#8E8E93', fontWeight: '600' },
+  primaryBtn: { 
+    paddingVertical: 15, 
+    borderRadius: 15, 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    width: '100%' 
+  },
 });
