@@ -68,6 +68,10 @@ Respond with valid JSON only, no markdown.`;
   }
 }
 
+export function getBedrockDebugInfo(): string {
+  return `Region: ${REGION} | Key set: ${ACCESS_KEY.length > 0} | Secret set: ${SECRET_KEY.length > 0}`;
+}
+
 function getMockParkInfo(parkName: string): ParkInfo {
   return {
     description: `${parkName} is a beautiful California State Park offering stunning natural scenery and diverse outdoor recreation opportunities. Connect AWS Bedrock credentials to get real AI-powered park information.`,

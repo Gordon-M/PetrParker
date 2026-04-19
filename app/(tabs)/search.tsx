@@ -15,7 +15,7 @@ import * as Location from 'expo-location';
 import Feather from '@expo/vector-icons/Feather';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 import { CA_STATE_PARKS, Park, getDistanceMiles } from '@/constants/parks';
-import { getParkInfo, ParkInfo } from '@/services/bedrock';
+import { getParkInfo, ParkInfo, getBedrockDebugInfo } from '@/services/bedrock';
 
 const RANGER_GREEN = '#2D5A27';
 
@@ -76,10 +76,12 @@ export default function Search() {
     setParkInfo(null);
     setModalVisible(true);
     setLoadingInfo(true);
+    console.log('[Bedrock]', getBedrockDebugInfo());
     try {
       const info = await getParkInfo(park.name);
       setParkInfo(info);
-    } catch {
+    } catch (err) {
+      console.error('[Bedrock] Error:', err);
       setParkInfo(null);
     } finally {
       setLoadingInfo(false);
