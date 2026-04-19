@@ -150,4 +150,4 @@ const styles = StyleSheet.create({
   primaryBtnText: { color: '#FFF', fontWeight: 'bold' },
   secondaryBtn: { flex: 1, borderWidth: 1, borderColor: RANGER_GREEN, alignItems: 'center', justifyContent: 'center', padding: 16, borderRadius: 16 },
   secondaryBtnText: { color: RANGER_GREEN, fontWeight: '700' }
-});
+}); 
